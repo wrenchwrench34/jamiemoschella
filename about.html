@@ -10,15 +10,19 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    animation: fadein 3s;
-    animation: fadeout 3s;
+    animation: fadein 10s;
        }
     @keyframes fadein {
     from {
       opacity:0;
       }
-    to {
+    25% {
+      opacity:1
+    75% {
       opacity:1;
+      }
+    to {
+      opacity: 0;
       }
     }
     @keyframes fadein {
