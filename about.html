@@ -11,6 +11,7 @@
     left: 50%;
     transform: translate(-50%,-50%);
     animation: fade 10s;
+    animation-fill-mode: forwards;
        }
     @keyframes fade {
     0%, 100% {
@@ -22,8 +23,13 @@
     }
   </style>
   <body>Hello</body>
-  <audio autoplay>
+  <audio id="hello">
     <source src="hello.wav" type="audio/wav">
     This feature is not supported on your browser.
   </audio>
+  <script>
+   setTimeout(function(){
+   document.getElementById("hello").play();
+   }, 2000);
+  </script>
   </html>
