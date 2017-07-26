@@ -11,16 +11,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    transform: scale(2);
-    zoom: 0.5;
-    animation: fade 4s;
+    animation: fade 8s;
     animation-fill-mode: forwards;
        }
     @keyframes fade {
-    0% {
+    0%, 100% {
       opacity:0;
       }
-    100% {
+    20%, 80% {
       opacity: 1;
       }
     }
