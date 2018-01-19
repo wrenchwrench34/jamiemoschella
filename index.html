@@ -3,15 +3,7 @@
 <head> <title>Jamie Moschella</title> </head>
 
   <style>
-    #loading-mask {
-    background-color: white;
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 9999;
-}   
+    
     body {
     background: url("purple_light_backdrop.jpg");
     background-size: cover;
@@ -66,7 +58,7 @@
     <img id="Education" class="icons" src="http://cdn.onlinewebfonts.com/svg/img_142809.png" alt="Education" width=52px>
     </div>
     
-    <div id="selector" display="none">
+    <div id="selector">
     &#8226
     </div>
  
@@ -77,11 +69,6 @@
 </style>
   
     <script>
-    window.onload=function() {
-    document.getElementById('loading-mask').style.display='none';
-    var selector = document.getElementById("selector");
-    selector.style.display='inline'
-    };
     Drums.onclick = function() {
       var selector = document.getElementById("selector");
       selector.style.top = '35%';
