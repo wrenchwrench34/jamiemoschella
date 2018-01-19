@@ -3,40 +3,77 @@
 <head> <title>Jamie Moschella</title> </head>
 
   <style>
+    
     body {
     background: url("purple_light_backdrop.jpg");
     background-size: cover;
+    user-select: none;
     }
     
     #title {
     text-align: center;
     font-family: "Courier New", monospace;
     font-size: 400%;
-    user-select: none;
     color: white;
     }
     
-    #invert {
-      filter: invert(1);
+    .icons {
+    position: fixed;
+    transform: translateY(-50%);
+    filter: invert(1);
     }
     
-    #icons {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    user-select: none;
+    #Drums {
+    top: 35%;
     }
+    #Videography {
+    top: 45%;
+    }
+    #Programming {
+    top: 55%;
+    }
+    #Education {
+    top: 65%;
+    }
+    
+  #selector {
+    position: fixed;
+    transform: translateY(-50%);
+    left: 20%;
+    font-size: 400%;
+    color: white;
+    }
+    
+  #selector.animate {
+  top: 65%;
+  transition-property: top;
+  transition-duration: 5s;
+  transition-timing-function: linear;
+}
   </style>
   
+  <script>
+  function selectAnimation(clicked) {
+  if (clicked == "Drums") {
+    var selector = document.getElementByID('selector')
+    selector.classList.add('animate');
+    }
+  }
+  </script>
   
   <body>
-  <div id="title">Jamie Moschella&thinsp;</div>
+
+    <div id="title">Jamie Moschella&thinsp;</div>
   
     <div id="icons">
-    <img id="invert" src="https://image.flaticon.com/icons/png/512/24/24859.png" alt="Drums" width=50px> <br><br><br>
-    <img id="invert" src="http://moziru.com/images/dslr-clipart-4.png" alt="Videography" width=52px> <br><br><br>
-    <img id="invert" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Laptop_font_awesome.svg/512px-Laptop_font_awesome.svg.png" alt="Programming" width=54px> <br><br><br>
-    <img id="invert" src="http://cdn.onlinewebfonts.com/svg/img_142809.png" alt="Education" width=52px>
+    <img id="Drums" class="icons" src="https://image.flaticon.com/icons/png/512/24/24859.png" alt="Drums" width=50px onclick="selectAnimation('Drums');"> <br><br><br>
+    <img id="Videography" class="icons" src="http://moziru.com/images/dslr-clipart-4.png" alt="Videography" width=52px> <br><br><br>
+    <img id="Programming" class="icons" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Laptop_font_awesome.svg/512px-Laptop_font_awesome.svg.png" alt="Programming" width=54px> <br><br><br>
+    <img id="Education" class="icons" src="http://cdn.onlinewebfonts.com/svg/img_142809.png" alt="Education" width=52px>
+    </div>
+    
+    <div id="selector">
+    &#8226
     </div>
  
   </body>
