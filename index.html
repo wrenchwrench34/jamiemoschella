@@ -42,7 +42,7 @@
     top: 45%;
     font-size: 400%;
     color: white;
-    transition: top 3s;
+    transition: top 1s;
 }
   </style>
   
@@ -68,9 +68,17 @@
 </style>
   
     <script>
-     Drums.onclick = function() {
+    Drums.onclick = function() {
       var selector = document.getElementById("selector");
       selector.style.top = '35%';
+    };
+    Videography.onclick = function() {
+      var selector = document.getElementById("selector");
+      selector.style.top = '45%';
+    };
+    Programming.onclick = function() {
+      var selector = document.getElementById("selector");
+      selector.style.top = '55%';
     };
     Education.onclick = function() {
       var selector = document.getElementById("selector");
