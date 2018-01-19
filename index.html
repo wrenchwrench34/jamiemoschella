@@ -34,6 +34,7 @@
     }
     #Education {
     top: 65%;
+      transition: top 5s;
     }
     
   #selector {
@@ -42,22 +43,20 @@
     left: 10%;
     top: 45%;
     font-size: 400%;
-    color: blue;
+    color: white;
     transition: top 5s;
 }
   </style>
   
   <script>
-  var Education = document.getElementByID('Education');
   Education.onclick = function() {
-    var selector = document.getElementByID('selector');
-    selector.style.color = 'red';
+    this.style.color = 'red';
     };
   </script>
   
   <body>
 
-    <div id="title">Jamie Moschellap&thinsp;</div>
+    <div id="title">Jamie Moschella&thinsp;</div>
   
     <div id="icons">
     <img id="Drums" class="icons" src="https://image.flaticon.com/icons/png/512/24/24859.png" alt="Drums" width=50px> <br><br><br>
