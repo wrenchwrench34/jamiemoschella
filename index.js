@@ -2,7 +2,6 @@ var current = ProgrammingIcon;
 var timeout;
 
 document.getElementById("textbox").className = 'fade1';
-document.getElementById("background").className = 'fade1';
 timeout = window.setTimeout(function() {
     document.getElementById("textbox").innerHTML = document.getElementById("Programming").innerHTML;
     document.getElementById("textbox").className = 'fade2';
