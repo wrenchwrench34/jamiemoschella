@@ -6,7 +6,7 @@ timeout = window.setTimeout(function() {
     document.getElementById("textbox").innerHTML = document.getElementById("Programming").innerHTML;
     document.getElementById("textbox").className = 'fade2';
     document.getElementById("background").className = 'fade2';
-}, 500);
+}, 1000);
 
 ProgrammingIcon.onclick = function() {
     if (current != ProgrammingIcon) {
