@@ -1,111 +1,87 @@
 @font-face {
-	font-family: "Candara";
-    src: url("Candara.ttf");
+	font-family: 'Candara';
+    src: url('Candara.ttf');
 }
 
 body {
-    font-family: "Candara";
-    position: relative;
-    animation: fade 1s linear;
+    margin: 0;
+    font-family: 'Candara';
+    font-size: 1.5vw;
+    user-select: none;
+    background-color: #F8F8F8;
 }
 
-#iemessage {
+#main {
     position: fixed;
-    width: 100%;
-    opacity: calc(0);
-    font-size: 150%;
-    text-align: center;
-    left: 0;
-    top: 0;
-    background-color: maroon;
-    font-weight: bold;
-    color: white;
+    top: 7vh;
 }
 
-@keyframes fade {
-    0%, 50% { opacity: 0 }
-    100% { opacity: 1 }
+#leftbar {
+    position: fixed;
+    left: 0;
+    width: 35%;
+    height: 100%;
+    background-color: whitesmoke;
+}
+
+.hcontainer {
+    display: block;
+    padding-top: 0.3em;
+    padding-bottom: 0.5em;
+}
+
+.hcontainer:hover { 
+    background-color: white;
+}
+
+.left {
+    position: absolute;
+    text-align: right;
+    left: 0;
+    width: 30vw;
+}
+
+.right {
+    position: relative;
+}
+
+.row {
+    display: inline-block;
+    position: relative;
+    left: 30vw;
+    width: 70vw;
+    right: 0;
+    padding-bottom: 0.1em;
+}
+
+.Ldetail {
+    position: absolute;
+    right: 40%;
+}
+
+.Rdetail {
+    display: inline;
+    position: relative;
+    padding-left: 0.2em;
+    left: 60%;
+    font-weight: bold;
 }
 
 #name {
-    position: fixed;
-    font-size: 5vmax;
-    top: 0;
-    line-height: 110%;
-    left: 3vw;
-}
-
-#major {
-    position: fixed;
-    line-height: 110%;
-    top: 1.8vh;
-    right: 3vw;
+    display: block;
+    width: 30vw;
     text-align: right;
-    font-size: 2.5vmax;
+    font-size: 3vw;
+    transform: translateY(10%);
+    text-shadow: 1px 1px 0px LightCoral;
 }
 
-#Python {
+#email {
     position: fixed;
-    top: 18vh;
-    left: 11.3vw;
-    font-size: 1.8vmax;
+    bottom: 0;
+    left: 0;
+    font-size: 1.5vw;
+    user-select: text;
+    padding: 0.6em;
+    text-shadow: 1px 1px 0px LightCoral;
 }
-
-#JavaScript {
-    position: fixed;
-    top: 48vh;
-    left: calc(11.3vw + 68vmax - 68vh);
-    font-size: 1.8vmax;
-}
-
-#otherbox {
-    position: fixed;
-    bottom: calc(5vh);
-    left: 15vw;
-}
-
-#other {
-    position: fixed;
-    bottom: calc(11vmax + 5vh);
-    left: calc(15vw + 3.5vmax);
-    font-size: 3.8vmax;
-}
-
-#otherlist {
-    display: inline-block;
-    font-size: 1.8vmax;
-}
-
-.langname {
-    font-size: 3.8vmax;
-}
-
-.bullet {
-    font-size: 1.5vmax;
-}
-
-#circle {
-    display: inline-block;
-    height: 9.5vmax;
-    width: 9.5vmax;
-    background-color: #225982;
-    border-radius: 50%;
-}
-
-#linkedin {
-    position: fixed;
-    width: 7vh;
-    right: 2vh;
-    bottom: 2vh;
-}
-
-@media (orientation: portrait) {
-    #major {
-        position: fixed;
-        line-height: 110%;
-        top: 5vh;
-        left: 3vw;
-        text-align: left;
-        font-size: 2.5vh;
-    }
-  }
