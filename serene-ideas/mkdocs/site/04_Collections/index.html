@@ -494,13 +494,13 @@
 <p>In this section, we will learn about several more complex types that are built into Serene.</p>
 <h2 id="arrays">Arrays</h2>
 <p>An array is a fixed-length sequence elements, where all of the elements are the same type. Indexing an array always returns an Optional, because the index used may be outside of the valid range of indexes. If the index is invalid, the indexing operation will return <code>undefined</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">binarySearch</span><span class="err">(u:</span><span class="nc"> Array</span><span class="err">[Int], x:</span><span class="nc"> Int</span><span class="err">) -&gt; Int {</span>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">binarySearch</span><span class="err">(u:</span><span class="nc"> Array</span><span class="err">[Int], x:</span><span class="nc"> Int</span><span class="err">) -&gt; </span><span class="nc">Int</span><span class="err"> {</span>
 <span class="err">    </span><span class="k">var</span><span class="err"> i = u.length / 2</span>
 <span class="err">    </span><span class="k">while</span><span class="err"> (True) {</span>
 <span class="err">        </span><span class="k">either</span><span class="err"> (u[i] is defined) </span><span class="k">or</span><span class="err"> throw IndexError</span>
 <span class="err">        </span><span class="k">if</span><span class="err"> (u[i] &lt; x) {</span>
 <span class="err">            </span><span class="k">set</span><span class="err"> i = i / 2</span>
-<span class="err">        } elseif (u[i] &gt; x) {</span>
+<span class="err">        } </span><span class="k">elseif</span><span class="err"> (u[i] &gt; x) {</span>
 <span class="err">            </span><span class="k">set</span><span class="err"> i = (i + u.length)/2</span>
 <span class="err">        } </span><span class="k">else</span><span class="err"> {</span>
 <span class="err">            </span><span class="k">return</span><span class="err"> i</span>
@@ -517,7 +517,7 @@
 <span class="err">    </span><span class="k">while</span><span class="err"> (True) {</span>
 <span class="err">        </span><span class="k">if</span><span class="err"> (u[i] &lt; x) {</span>
 <span class="err">            </span><span class="k">set</span><span class="err"> i = i / 2</span>
-<span class="err">        } elseif (u[i] &gt; x) {</span>
+<span class="err">        } </span><span class="k">elseif</span><span class="err"> (u[i] &gt; x) {</span>
 <span class="err">            </span><span class="k">set</span><span class="err"> i = (i + u.length)/2</span>
 <span class="err">        } </span><span class="k">else</span><span class="err"> {</span>
 <span class="err">            u.delete!(i)</span>
@@ -545,7 +545,7 @@
 <span class="c1">// This function isn&#39;t useful, as the strings won&#39;t be accessible from the calling scope</span>
 <span class="c1">// but will still occupy memory within the Region. However, it&#39;s not a memory leak, because</span>
 <span class="c1">// reg as a whole is still accessible and can be deallocated later.</span>
-<span class="k">function</span><span class="err"> </span><span class="nf">makeNames2</span><span class="err">() -&gt; Region[String] {</span>
+<span class="k">function</span><span class="err"> </span><span class="nf">makeNames2</span><span class="err">() -&gt; </span><span class="nc">Region</span><span class="err">[String] {</span>
 <span class="err">    </span><span class="k">var</span><span class="err"> reg = Region[String]</span>
 <span class="err">    </span><span class="k">const</span><span class="err"> firstName = reg.add!(</span><span class="s">&quot;Neil&quot;</span><span class="err">)</span>
 <span class="err">    </span><span class="k">const</span><span class="err"> middleName = reg.add!(</span><span class="s">&quot;Patrick&quot;</span><span class="err">)</span>

@@ -420,10 +420,7 @@
                 
                 <h1 id="8-interfaces">8. Interfaces</h1>
 <p>When writing a function, sometimes you only care about what methods the function arguments support, and not how they're implemented. You may want to write the function in a flexible way so that they can accept any type that implements the correct methods. That can be done with Interfaces. Here is an example of how you can define an Interface.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="err"> AddressModule</span>
-
-
-<span class="k">interface</span><span class="err"> Card with</span>
+<div class="highlight"><pre><span></span><code><span class="k">interface</span><span class="err"> Card with</span>
 <span class="err">~ struct {</span>
 <span class="err">    returnAddress:</span><span class="nc"> String</span>
 <span class="err">}</span>
@@ -458,7 +455,7 @@
 <span class="err">        </span><span class="k">set</span><span class="err"> self.accepted = True</span>
 <span class="err">    }</span>
 
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">parseLocation</span><span class="err">(address:</span><span class="nc"> String</span><span class="err">) from AddressModule</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">parseLocation</span><span class="err">(address:</span><span class="nc"> String</span><span class="err">) from Address</span>
 <span class="err">}</span>
 
 
@@ -467,13 +464,13 @@
 
 <span class="k">interface</span><span class="err"> CompareAndIndex(self:</span><span class="nc"> type</span><span class="err"> X) with</span>
 <span class="err">~ signatures {</span>
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> X</span><span class="err">) -&gt; bool</span>
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">greaterThan</span><span class="err">(other:</span><span class="nc"> X</span><span class="err">) -&gt; bool</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> X</span><span class="err">) -&gt; </span><span class="nc">Bool</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">greaterThan</span><span class="err">(other:</span><span class="nc"> X</span><span class="err">) -&gt; </span><span class="nc">Bool</span>
 
-<span class="err">    </span><span class="k">subscript</span><span class="err"> </span><span class="nf">get</span><span class="err">(index:</span><span class="nc"> Int</span><span class="err">) -&gt; Option(X)</span>
+<span class="err">    </span><span class="k">subscript</span><span class="err"> </span><span class="nf">get</span><span class="err">(index:</span><span class="nc"> Int</span><span class="err">) -&gt; </span><span class="nc">maybe</span><span class="err"> X</span>
 <span class="err">}</span>
 <span class="err">~ specifics where X:</span><span class="nc"> Array</span><span class="err">[Int] {</span>
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> Array</span><span class="err">[Int]) {</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> Array</span><span class="err">[Int]) -&gt; </span><span class="nc">Bool</span><span class="err"> {</span>
 <span class="err">        </span><span class="k">for</span><span class="err"> (i = 0, min(self.length, other.length)) {</span>
 <span class="err">            </span><span class="k">if</span><span class="err"> (self[i] != other[i]) {</span>
 <span class="err">                </span><span class="k">return</span><span class="err"> self[i] &lt; other[i]</span>
@@ -482,7 +479,7 @@
 <span class="err">        </span><span class="k">return</span><span class="err"> self.length &lt; other.length</span>
 <span class="err">    }</span>
 
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> Array</span><span class="err">[Int]) {</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> Array</span><span class="err">[Int]) -&gt; </span><span class="nc">Bool</span><span class="err"> {</span>
 <span class="err">        </span><span class="k">for</span><span class="err"> (i = 0, min(self.length, other.length)) {</span>
 <span class="err">            </span><span class="k">if</span><span class="err"> (self[i] != other[i]) {</span>
 <span class="err">                </span><span class="k">return</span><span class="err"> self[i] &gt; other[i]</span>
@@ -491,7 +488,7 @@
 <span class="err">        </span><span class="k">return</span><span class="err"> self.length &gt; other.length</span>
 <span class="err">    }</span>
 
-<span class="err">    </span><span class="k">subscript</span><span class="err"> </span><span class="nf">get</span><span class="err">(index:</span><span class="nc"> Int</span><span class="err">) -&gt; Optional[Int] from Index(self:</span><span class="nc"> Array</span><span class="err">[</span><span class="k">type</span><span class="err"> X])</span>
+<span class="err">    </span><span class="k">subscript</span><span class="err"> </span><span class="nf">get</span><span class="err">(index:</span><span class="nc"> Int</span><span class="err">) -&gt; </span><span class="nc">maybe</span><span class="err"> Int from Index[Array[</span><span class="k">type</span><span class="err"> X]]</span>
 <span class="err">}</span>
 </code></pre></div>
                 
