@@ -193,8 +193,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../00_What_Is_Unique/" class="md-nav__link">
-        What is Unique about Serene?
+      <a href="../00_Why_Serene/" class="md-nav__link">
+        Why Serene?
       </a>
     </li>
   
@@ -419,7 +419,11 @@
                 
                 
                 <h1 id="3-mutability-and-ownership">3. Mutability and Ownership</h1>
-<p>All values in Serene are owned by a single variable.</p>
+<p>Serene's biggest innovation is its memory management model. In general, most high level programming languages (like JavaScript, Python, and Java) use a tracing garbage collector, while systems programming languages have traditionally relied on manual memory management. Both approaches have their disadvantages: manual memory management is more complex from the programmer's perspective and is prone to small errors that can cause serious bugs, while tracing garbage collectors can introduce runtime overhead and unpredictability that are undesirable for systems programming.</p>
+<p>In recent years, a third approach has gained popularity: ownership.</p>
+<p>The idea of ownership, which was pioneered by the language Rust, is that each value is owned by only one variable at a given time. When that variable goes out of scope, the value will be automatically deleted. It allows for safe and predictable memory management without the need for intervention from the programmer or from an additional runtime process. However, for Rust's borrowing system to be as versatile as the extensive feature-set of a language like C++ required Rust to adopt a similarly large and complex range of features and rules, which has led some to say that the language has a "high learning curve".</p>
+<p>Serene takes inspiration from Rust's memory management system, but it aims to make ownership more straightforward. It does this by eliminating something that is a staple of most systems programming languages: Serene doesn't allow you to store references or pointers. There is no global sharing of state whatsoever -- each value is owned by only one variable at a given time, and <em>it is only accessible through that variable</em>. This may seem limiting, but if you imagine a program's memory as simply a large global array, and that a pointer is simply a index into that array, you can start to imagine alternate ways of recreating reference-like behavior without explicit pointers or references. The simplest way, which is adopted in Serene's <code>Region</code> and <code>Handle</code> system, is to split that global array into multiple local arrays, and to pass the arrays and indexes back and forth between functions when data needs to be shared. This effectively simulates region-based memory management. When a Serene object needs to reference another object, it can store an index, or <code>Handle</code>, to the <code>Region</code> that stores the other object. And unlike a local variable with a pointer, which is essentially a locally-stored index to a globally-stored array, both Handles and Regions are local, so no sharing of state is possible without passing parameters.</p>
+<p>Without pointers or references, program logic is much easier for a reader to follow, as you can clearly see whether any value is being mutated and where. In Serene, function parameters are passed immutably by default, but you can also create a function that will <code>move</code>, <code>copy</code>, or <code>mutate</code> its parameters, and there are keywords at both the definition site and calling site to make this behavior obvious. Serene's ownership model keeps the language simple and readable, while maintaining the low overhead and efficiency that is necessary for systems programming.</p>
 <div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">middleChar</span><span class="err">(s:</span><span class="nc"> String</span><span class="err">, </span><span class="kt">mutate</span><span class="err"> c:</span><span class="nc"> Char</span><span class="err">) {</span>
 <span class="err">    </span><span class="c1">// Find the character at the middle index of a string</span>
 <span class="err">    </span><span class="k">const</span><span class="err"> length = s.length</span>
