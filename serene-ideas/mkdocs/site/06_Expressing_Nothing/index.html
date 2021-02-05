@@ -14,7 +14,7 @@
     
     
       
-        <title>7. Interfaces - Basics of Serene</title>
+        <title>6. Expressing Nothing - Basics of Serene</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7-interfaces" class="md-skip">
+        <a href="#6-expressing-nothing" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              7. Interfaces
+              6. Expressing Nothing
             
           </span>
         </div>
@@ -253,8 +253,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../04_More_Types/" class="md-nav__link">
-        4. More Types
+      <a href="../04_Collections/" class="md-nav__link">
+        4. Collections
       </a>
     </li>
   
@@ -281,21 +281,6 @@
 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../06_Custom_Types/" class="md-nav__link">
-        6. Custom Types
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
     
   
   
@@ -306,9 +291,52 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          6. Expressing Nothing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        7. Interfaces
+        6. Expressing Nothing
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#maybe-defined-and-undefined" class="md-nav__link">
+    Maybe (Defined and Undefined)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#either" class="md-nav__link">
+    Either
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cell" class="md-nav__link">
+    Cell
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -322,8 +350,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../08_Generic_Functions/" class="md-nav__link">
-        8. Generic Functions
+      <a href="../07_Custom_Types/" class="md-nav__link">
+        7. Custom Types
       </a>
     </li>
   
@@ -337,8 +365,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../09_Generic_Types/" class="md-nav__link">
-        9. Generic Types
+      <a href="../08_Interfaces/" class="md-nav__link">
+        8. Interfaces
       </a>
     </li>
   
@@ -352,8 +380,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../10_Modules/" class="md-nav__link">
-        10. Modules
+      <a href="../09_Generic_Functions/" class="md-nav__link">
+        9. Generic Functions
       </a>
     </li>
   
@@ -367,8 +395,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linked-List/" class="md-nav__link">
-        Example A: Linked List
+      <a href="../10_Generic_Types/" class="md-nav__link">
+        10. Generic Types
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_Modules/" class="md-nav__link">
+        11. Modules
       </a>
     </li>
   
@@ -392,6 +435,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#maybe-defined-and-undefined" class="md-nav__link">
+    Maybe (Defined and Undefined)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#either" class="md-nav__link">
+    Either
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cell" class="md-nav__link">
+    Cell
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -403,82 +475,43 @@
               
                 
                 
-                <h1 id="7-interfaces">7. Interfaces</h1>
-<p>When writing a function, sometimes you only care about what methods the function arguments support, and not how they're implemented. You may want to write the function in a flexible way so that they can accept any type that implements the correct methods. That can be done with Interfaces. Here is an example of how you can define an Interface.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="err"> AddressModule</span>
-
-
-<span class="k">interface</span><span class="err"> Card with</span>
-<span class="err">~ struct {</span>
-<span class="err">    returnAddress:</span><span class="nc"> String</span>
-<span class="err">}</span>
-
-
-<span class="k">interface</span><span class="err"> Invitation with</span>
-<span class="err">~ struct {</span>
-<span class="err">    date:</span><span class="nc"> String</span><span class="err">,</span>
-<span class="err">    location:</span><span class="nc"> Address</span><span class="err">,</span>
-<span class="err">    numGuests:</span><span class="nc"> Int</span><span class="err">,</span>
-<span class="err">    accepted:</span><span class="nc"> Bool</span>
-<span class="err">}</span>
-<span class="err">~ signatures {</span>
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">send</span><span class="err">(recipient:</span><span class="nc"> Person</span><span class="err">),</span>
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">accept</span><span class="err">(guests:</span><span class="nc"> Int</span><span class="err">)</span>
-<span class="err">}</span>
-
-
-<span class="k">type</span><span class="err"> WeddingInvitation with</span>
-<span class="err">~ struct {</span>
-<span class="err">    bride:</span><span class="nc"> String</span><span class="err">,</span>
-<span class="err">    groom:</span><span class="nc"> String</span><span class="err">,</span>
-<span class="err">    struct from Invitation,</span>
-<span class="err">    struct from Card</span>
-<span class="err">}</span>
-<span class="err">~ specifics (implements Invitation) {</span>
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">send</span><span class="err">(recipient:</span><span class="nc"> Person</span><span class="err">) {</span>
-<span class="err">        </span><span class="k">run</span><span class="err"> recipient.receive(</span><span class="kt">copy</span><span class="err"> self)</span>
+                <h1 id="6-expressing-nothing">6. Expressing Nothing</h1>
+<p>There are a couple ways of expressing that something does not exist in Serene. </p>
+<h2 id="maybe-defined-and-undefined">Maybe (Defined and Undefined)</h2>
+<p>The keywords <code>defined</code> and <code>undefined</code> are used primarily for checking whether an index into some collection (like a vector or a region) is valid. While the language Python, for example, throws an <code>IndexError</code> at runtime when an invalid index is accessed, Serene returns <code>undefined</code>. The compiler requires you to check for these undefined values, which allows common errors to be caught at compile time (using "type refinement") instead of  at runtime. Checking whether a value is defined is often done with <code>either</code> statement, which will be introduced below.</p>
+<p>An important note is that <code>defined</code> and <code>undefined</code> technically aren't values. This makes them different from null pointers in C or <code>Option</code> in Rust. You can have a function return a value that might be undefined by prefixing the return type with <code>maybe</code>, but function parameters cannot be undefined. Also, once you have checked that a value is defined, you can continue to use it like any other value: there is no "unwrapping" necessary. </p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">getFirst</span><span class="err">(u:</span><span class="nc"> String</span><span class="err">) -&gt; maybe Char {</span>
+<span class="err">    </span><span class="k">if</span><span class="err"> (u.length &gt; 0) {</span>
+<span class="err">        </span><span class="k">return</span><span class="err"> u[0]</span>
+<span class="err">    } </span><span class="k">else</span><span class="err"> {</span>
+<span class="err">        </span><span class="k">return</span><span class="err"> undefined</span>
 <span class="err">    }</span>
-
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">accept</span><span class="err">(guests:</span><span class="nc"> Int</span><span class="err">) {</span>
-<span class="err">        </span><span class="k">set</span><span class="err"> self.accepted = True</span>
-<span class="err">    }</span>
-
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">parseLocation</span><span class="err">(address:</span><span class="nc"> String</span><span class="err">) from AddressModule</span>
-<span class="err">}</span>
-
-
-
-<span class="c1">// Interfaces with generics?</span>
-
-<span class="k">interface</span><span class="err"> CompareAndIndex(self:</span><span class="nc"> type</span><span class="err"> X) with</span>
-<span class="err">~ signatures {</span>
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> X</span><span class="err">) -&gt; bool</span>
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">greaterThan</span><span class="err">(other:</span><span class="nc"> X</span><span class="err">) -&gt; bool</span>
-
-<span class="err">    </span><span class="k">subscript</span><span class="err"> </span><span class="nf">get</span><span class="err">(index:</span><span class="nc"> Int</span><span class="err">) -&gt; Option(X)</span>
-<span class="err">}</span>
-<span class="err">~ specifics where X:</span><span class="nc"> Array</span><span class="err">[Int] {</span>
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> Array</span><span class="err">[Int]) {</span>
-<span class="err">        </span><span class="k">for</span><span class="err"> (i = 0, min(self.length, other.length)) {</span>
-<span class="err">            </span><span class="k">if</span><span class="err"> (self[i] != other[i]) {</span>
-<span class="err">                </span><span class="k">return</span><span class="err"> self[i] &lt; other[i]</span>
-<span class="err">            }</span>
-<span class="err">        }</span>
-<span class="err">        </span><span class="k">return</span><span class="err"> self.length &lt; other.length</span>
-<span class="err">    }</span>
-
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> Array</span><span class="err">[Int]) {</span>
-<span class="err">        </span><span class="k">for</span><span class="err"> (i = 0, min(self.length, other.length)) {</span>
-<span class="err">            </span><span class="k">if</span><span class="err"> (self[i] != other[i]) {</span>
-<span class="err">                </span><span class="k">return</span><span class="err"> self[i] &gt; other[i]</span>
-<span class="err">            }</span>
-<span class="err">        }</span>
-<span class="err">        </span><span class="k">return</span><span class="err"> self.length &gt; other.length</span>
-<span class="err">    }</span>
-
-<span class="err">    </span><span class="k">subscript</span><span class="err"> </span><span class="nf">get</span><span class="err">(index:</span><span class="nc"> Int</span><span class="err">) -&gt; Optional[Int] from Index(self:</span><span class="nc"> Array</span><span class="err">[</span><span class="k">type</span><span class="err"> X])</span>
 <span class="err">}</span>
 </code></pre></div>
+<h2 id="either">Either</h2>
+<p>The <code>either</code> statement is used to handle values that may be undefined. Here is an example of using the indexing operator with a <code>Handle</code>. <code>either</code> will try to execute the statement in parentheses, and if any part of it returns <code>undefined</code>, then it will stop executing that statement (in this case, it would stop without mutating <code>currentObject</code>) and it would instead execute the second statement, after the keyword <code>or</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Assume that the LinkedList struct redirects its subscripting to LinkedList.objects</span>
+
+<span class="k">function</span><span class="err"> </span><span class="nf">findTail</span><span class="err">(u:</span><span class="nc"> LinkedList</span><span class="err">) -&gt; maybe Handle {</span>
+<span class="err">    </span><span class="k">either</span><span class="err"> (</span><span class="k">var</span><span class="err"> currentObject = u[u.head]) </span><span class="k">or</span><span class="err"> </span><span class="k">return</span><span class="err"> undefined</span>
+<span class="err">    </span><span class="k">while</span><span class="err"> (True) {</span>
+<span class="err">        </span><span class="k">var</span><span class="err"> currentIndex = currentObject.next</span>
+<span class="err">        </span><span class="k">either</span><span class="err"> (</span><span class="k">set</span><span class="err"> currentObject = L[currentIndex]) </span><span class="k">or</span><span class="err"> </span><span class="k">return</span><span class="err"> currentIndex</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+
+
+<span class="k">function</span><span class="err"> </span><span class="nf">removeTail</span><span class="err">(</span><span class="kt">mutate</span><span class="err"> u:</span><span class="nc"> LinkedList</span><span class="err">) {</span>
+<span class="err">    </span><span class="k">either</span><span class="err"> (</span><span class="k">var</span><span class="err"> currentObject = u[u.head]) </span><span class="k">or</span><span class="err"> </span><span class="k">return</span><span class="err">    </span><span class="c1">//This copies u[u.head] so it might not be efficient</span>
+<span class="err">    </span><span class="k">while</span><span class="err"> (True) {</span>
+<span class="err">        </span><span class="k">var</span><span class="err"> currentIndex = currentObject.next</span>
+<span class="err">        </span><span class="k">either</span><span class="err"> (</span><span class="k">set</span><span class="err"> currentObject = u[currentIndex]) </span><span class="k">or</span><span class="err"> </span><span class="k">break</span>
+<span class="err">    }</span>
+<span class="err">    </span><span class="k">run</span><span class="err"> u.delete!(currentIndex)     </span><span class="c1">//methods that mutate the object are called with a &quot;!&quot;</span>
+<span class="err">}</span>
+</code></pre></div>
+<h2 id="cell">Cell</h2>
+<p>While it isn't present for <code>maybe</code> types, the "unwrapping" behavior of something like <code>Option</code> in Rust is still useful in certain situations. For that, Serene provides the <code>Cell</code> type, which can be unwrapped into either <code>Some(x)</code> or <code>Empty</code>.</p>
                 
               
               
@@ -497,7 +530,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../06_Custom_Types/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../05_Control_Flow/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -506,19 +539,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                6. Custom Types
+                5. Control Flow
               </div>
             </div>
           </a>
         
         
-          <a href="../08_Generic_Functions/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../07_Custom_Types/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                8. Generic Functions
+                7. Custom Types
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

@@ -253,8 +253,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../04_More_Types/" class="md-nav__link">
-        4. More Types
+      <a href="../04_Collections/" class="md-nav__link">
+        4. Collections
       </a>
     </li>
   
@@ -320,8 +320,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#either" class="md-nav__link">
-    Either
+  <a href="#more-control-flow" class="md-nav__link">
+    More Control Flow
   </a>
   
 </li>
@@ -342,8 +342,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../06_Custom_Types/" class="md-nav__link">
-        6. Custom Types
+      <a href="../06_Expressing_Nothing/" class="md-nav__link">
+        6. Expressing Nothing
       </a>
     </li>
   
@@ -357,8 +357,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../07_Interfaces/" class="md-nav__link">
-        7. Interfaces
+      <a href="../07_Custom_Types/" class="md-nav__link">
+        7. Custom Types
       </a>
     </li>
   
@@ -372,8 +372,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../08_Generic_Functions/" class="md-nav__link">
-        8. Generic Functions
+      <a href="../08_Interfaces/" class="md-nav__link">
+        8. Interfaces
       </a>
     </li>
   
@@ -387,8 +387,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../09_Generic_Types/" class="md-nav__link">
-        9. Generic Types
+      <a href="../09_Generic_Functions/" class="md-nav__link">
+        9. Generic Functions
       </a>
     </li>
   
@@ -402,8 +402,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../10_Modules/" class="md-nav__link">
-        10. Modules
+      <a href="../10_Generic_Types/" class="md-nav__link">
+        10. Generic Types
       </a>
     </li>
   
@@ -417,8 +417,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linked-List/" class="md-nav__link">
-        Example A: Linked List
+      <a href="../11_Modules/" class="md-nav__link">
+        11. Modules
       </a>
     </li>
   
@@ -470,8 +470,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#either" class="md-nav__link">
-    Either
+  <a href="#more-control-flow" class="md-nav__link">
+    More Control Flow
   </a>
   
 </li>
@@ -539,28 +539,8 @@
 <span class="err">    }</span>
 <span class="err">}</span>
 </code></pre></div>
-<h2 id="either">Either</h2>
-<p>Here is an example of using the indexing operator on a <code>Handle</code>. To deal with the <code>Option</code> type that is returned, we use the <code>either</code> construct. <code>either</code> will try to execute the statement in parentheses, and if any part of it returns <code>None</code>, then it will stop executing that statement (in this case, it would stop without mutating <code>currentObject</code>) and it would instead execute the second statement, after the keyword <code>or</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Assume that the LinkedList struct redirects its subscripting to LinkedList.objects</span>
-
-<span class="k">function</span><span class="err"> </span><span class="nf">findTail</span><span class="err">(u:</span><span class="nc"> LinkedList</span><span class="err">) -&gt; Handle {</span>
-<span class="err">    </span><span class="k">either</span><span class="err"> (</span><span class="k">var</span><span class="err"> currentObject = u[u.head]) </span><span class="k">or</span><span class="err"> </span><span class="k">return</span><span class="err"> None</span>
-<span class="err">    </span><span class="k">while</span><span class="err"> (True) {</span>
-<span class="err">        </span><span class="k">var</span><span class="err"> currentIndex = currentObject.next</span>
-<span class="err">        </span><span class="k">either</span><span class="err"> (</span><span class="k">set</span><span class="err"> currentObject = L[currentIndex]) </span><span class="k">or</span><span class="err"> </span><span class="k">return</span><span class="err"> currentIndex</span>
-<span class="err">    }</span>
-<span class="err">}</span>
-
-
-<span class="k">function</span><span class="err"> </span><span class="nf">removeTail</span><span class="err">(</span><span class="kt">mutate</span><span class="err"> u:</span><span class="nc"> LinkedList</span><span class="err">) {</span>
-<span class="err">    </span><span class="k">either</span><span class="err"> (</span><span class="k">var</span><span class="err"> currentObject = u[u.head]) </span><span class="k">or</span><span class="err"> </span><span class="k">return</span><span class="err">    </span><span class="c1">//This copies u[u.head] so it might not be efficient</span>
-<span class="err">    </span><span class="k">while</span><span class="err"> (True) {</span>
-<span class="err">        </span><span class="k">var</span><span class="err"> currentIndex = currentObject.next</span>
-<span class="err">        </span><span class="k">either</span><span class="err"> (</span><span class="k">set</span><span class="err"> currentObject = u[currentIndex]) </span><span class="k">or</span><span class="err"> </span><span class="k">break</span>
-<span class="err">    }</span>
-<span class="err">    </span><span class="k">run</span><span class="err"> u.delete!(currentIndex)     </span><span class="c1">//methods that mutate the object are called with a &quot;!&quot;</span>
-<span class="err">}</span>
-</code></pre></div>
+<h2 id="more-control-flow">More Control Flow</h2>
+<p>There is one more control flow construct in Serene, named <code>either</code>. But there's a bit of background explanation as to why <code>either</code> is necessary, so you can explore that in the next section.</p>
                 
               
               
@@ -579,7 +559,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../04_More_Types/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../04_Collections/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -588,19 +568,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                4. More Types
+                4. Collections
               </div>
             </div>
           </a>
         
         
-          <a href="../06_Custom_Types/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../06_Expressing_Nothing/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                6. Custom Types
+                6. Expressing Nothing
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

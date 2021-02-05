@@ -262,8 +262,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../04_More_Types/" class="md-nav__link">
-        4. More Types
+      <a href="../04_Collections/" class="md-nav__link">
+        4. Collections
       </a>
     </li>
   
@@ -292,8 +292,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../06_Custom_Types/" class="md-nav__link">
-        6. Custom Types
+      <a href="../06_Expressing_Nothing/" class="md-nav__link">
+        6. Expressing Nothing
       </a>
     </li>
   
@@ -307,8 +307,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../07_Interfaces/" class="md-nav__link">
-        7. Interfaces
+      <a href="../07_Custom_Types/" class="md-nav__link">
+        7. Custom Types
       </a>
     </li>
   
@@ -322,8 +322,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../08_Generic_Functions/" class="md-nav__link">
-        8. Generic Functions
+      <a href="../08_Interfaces/" class="md-nav__link">
+        8. Interfaces
       </a>
     </li>
   
@@ -337,8 +337,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../09_Generic_Types/" class="md-nav__link">
-        9. Generic Types
+      <a href="../09_Generic_Functions/" class="md-nav__link">
+        9. Generic Functions
       </a>
     </li>
   
@@ -352,8 +352,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../10_Modules/" class="md-nav__link">
-        10. Modules
+      <a href="../10_Generic_Types/" class="md-nav__link">
+        10. Generic Types
       </a>
     </li>
   
@@ -367,8 +367,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linked-List/" class="md-nav__link">
-        Example A: Linked List
+      <a href="../11_Modules/" class="md-nav__link">
+        11. Modules
       </a>
     </li>
   
@@ -404,6 +404,10 @@
                 
                 
                 <h1 id="0-what-is-unique-about-serene">0. What is Unique about Serene?</h1>
+<blockquote>
+<p>"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."</p>
+<p>-- Martin Fowler, 1999</p>
+</blockquote>
 <p>Serene's biggest innovation is its memory management model. In general, most high level programming languages (like JavaScript, Python, and Java) use a tracing garbage collector, while systems programming languages have traditionally relied on manual memory management. Both approaches have their disadvantages: manual memory management is more complex from the programmer's perspective and is prone to small errors that can cause serious bugs, while tracing garbage collectors can introduce runtime overhead and unpredictability that are undesirable for systems programming.</p>
 <p>In recent years, a third approach has gained popularity: ownership.</p>
 <p>The idea of ownership, which was pioneered by the language Rust, is that each value is owned by only one variable at a given time. When that variable goes out of scope, the value will be automatically deleted. It allows for safe and predictable memory management without the need for intervention from the programmer or from an additional runtime process. However, for Rust's borrowing system to be as versatile as the extensive feature-set of a language like C++ required Rust to adopt a similarly large and complex range of features and rules, which has led some to say that the language has a "high learning curve".</p>

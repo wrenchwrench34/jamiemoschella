@@ -14,7 +14,7 @@
     
     
       
-        <title>9. Generic Types - Basics of Serene</title>
+        <title>10. Generic Types - Basics of Serene</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#9-generic-types" class="md-skip">
+        <a href="#10-generic-types" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              9. Generic Types
+              10. Generic Types
             
           </span>
         </div>
@@ -253,8 +253,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../04_More_Types/" class="md-nav__link">
-        4. More Types
+      <a href="../04_Collections/" class="md-nav__link">
+        4. Collections
       </a>
     </li>
   
@@ -283,8 +283,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../06_Custom_Types/" class="md-nav__link">
-        6. Custom Types
+      <a href="../06_Expressing_Nothing/" class="md-nav__link">
+        6. Expressing Nothing
       </a>
     </li>
   
@@ -298,8 +298,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../07_Interfaces/" class="md-nav__link">
-        7. Interfaces
+      <a href="../07_Custom_Types/" class="md-nav__link">
+        7. Custom Types
       </a>
     </li>
   
@@ -313,8 +313,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../08_Generic_Functions/" class="md-nav__link">
-        8. Generic Functions
+      <a href="../08_Interfaces/" class="md-nav__link">
+        8. Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_Generic_Functions/" class="md-nav__link">
+        9. Generic Functions
       </a>
     </li>
   
@@ -337,12 +352,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          9. Generic Types
+          10. Generic Types
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        9. Generic Types
+        10. Generic Types
       </a>
       
         
@@ -381,23 +396,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../10_Modules/" class="md-nav__link">
-        10. Modules
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Linked-List/" class="md-nav__link">
-        Example A: Linked List
+      <a href="../11_Modules/" class="md-nav__link">
+        11. Modules
       </a>
     </li>
   
@@ -447,10 +447,10 @@
               
                 
                 
-                <h1 id="9-generic-types">9. Generic Types</h1>
+                <h1 id="10-generic-types">10. Generic Types</h1>
 <p>We will introduce generic types through an example using Regions and Handles, two commonly used built-in types.</p>
 <h2 id="regions-and-handles">Regions and Handles</h2>
-<p>Serene does not have references or pointers. So how does one object refer to another object? The idiom that is most commonly used in Serene is region-based memory management, with the types <code>Region</code> and <code>Handle</code>. A <code>Region</code> is a dynamically-sized block of memory where objects of the same type can be stored. Those objects are accessed using an index, referred to as a <code>Handle</code>.</p>
+<p>Serene does not have references or pointers. So how does one object refer to another object? The idiom that is most commonly used in Serene is region-based memory management, with the types <code>Region</code> and <code>Handle</code>.</p>
 <p>If you have a bunch of objects of the same type that all refer to each other (say, in a data structure like a linked list), then the typical way to handle it is to store all of the objects inside one <code>Region</code>.  Then an object can access another object by storing its <code>Handle</code> in one of its fields. The other object would be accessed with an indexing operator, like <code>my_region[my_handle]</code>. Note that the indexing operator returns an <code>Option</code> type here because it is possible that there is no valid object for that handle.</p>
 <p>Below is a reference implementation of the <code>Region</code> and <code>Handle</code> types.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Potential implementation of the Region and Handle system as a standard library module</span>
@@ -486,7 +486,7 @@
 <span class="err">        </span><span class="k">run</span><span class="err"> vector.pop!(index_to_delete)</span>
 <span class="err">    }</span>
 
-<span class="err">    </span><span class="k">subscript</span><span class="err"> </span><span class="nf">get</span><span class="err">(my_handle:</span><span class="nc"> Handle</span><span class="err">[R]) -&gt; Optional[T] {</span>
+<span class="err">    </span><span class="k">subscript</span><span class="err"> </span><span class="nf">get</span><span class="err">(my_handle:</span><span class="nc"> Handle</span><span class="err">[R]) -&gt; maybe T {</span>
 <span class="err">        </span><span class="k">return</span><span class="err"> vector[my_handle.index]</span>
 <span class="err">    }</span>
 <span class="err">}</span>
@@ -511,7 +511,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../08_Generic_Functions/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../09_Generic_Functions/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -520,19 +520,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                8. Generic Functions
+                9. Generic Functions
               </div>
             </div>
           </a>
         
         
-          <a href="../10_Modules/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../11_Modules/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                10. Modules
+                11. Modules
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

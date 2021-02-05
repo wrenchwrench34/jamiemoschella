@@ -14,7 +14,7 @@
     
     
       
-        <title>6. Custom Types - Basics of Serene</title>
+        <title>4. Collections - Basics of Serene</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#6-custom-types" class="md-skip">
+        <a href="#4-collections" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              6. Custom Types
+              4. Collections
             
           </span>
         </div>
@@ -251,11 +251,63 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../04_More_Types/" class="md-nav__link">
-        4. More Types
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          4. Collections
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        4. Collections
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    Arrays
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vectors" class="md-nav__link">
+    Vectors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regions-and-handles" class="md-nav__link">
+    Regions (and Handles)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -281,34 +333,10 @@
 
   
   
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        6. Custom Types
-      </a>
-      
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
   
     <li class="md-nav__item">
-      <a href="../07_Interfaces/" class="md-nav__link">
-        7. Interfaces
+      <a href="../06_Expressing_Nothing/" class="md-nav__link">
+        6. Expressing Nothing
       </a>
     </li>
   
@@ -322,8 +350,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../08_Generic_Functions/" class="md-nav__link">
-        8. Generic Functions
+      <a href="../07_Custom_Types/" class="md-nav__link">
+        7. Custom Types
       </a>
     </li>
   
@@ -337,8 +365,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../09_Generic_Types/" class="md-nav__link">
-        9. Generic Types
+      <a href="../08_Interfaces/" class="md-nav__link">
+        8. Interfaces
       </a>
     </li>
   
@@ -352,8 +380,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../10_Modules/" class="md-nav__link">
-        10. Modules
+      <a href="../09_Generic_Functions/" class="md-nav__link">
+        9. Generic Functions
       </a>
     </li>
   
@@ -367,8 +395,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linked-List/" class="md-nav__link">
-        Example A: Linked List
+      <a href="../10_Generic_Types/" class="md-nav__link">
+        10. Generic Types
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_Modules/" class="md-nav__link">
+        11. Modules
       </a>
     </li>
   
@@ -392,6 +435,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    Arrays
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vectors" class="md-nav__link">
+    Vectors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regions-and-handles" class="md-nav__link">
+    Regions (and Handles)
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -403,39 +475,68 @@
               
                 
                 
-                <h1 id="6-custom-types">6. Custom Types</h1>
-<p>Types in Serene can be defined using the <code>type</code> keyword, as shown below. Serene supports multiple forms of "compound types", including structs, enums, and tuples.</p>
-<div class="highlight"><pre><span></span><code><span class="k">type</span><span class="err"> Person struct {</span>
-<span class="err">    age:</span><span class="nc"> Int</span><span class="err">,</span>
-<span class="err">    name:</span><span class="nc"> String</span><span class="err">,</span>
-<span class="err">    gender:</span><span class="nc"> enum</span><span class="err"> {</span>
-<span class="err">        Male,</span>
-<span class="err">        Female</span>
-<span class="err">    },</span>
-<span class="err">    nickname:</span><span class="nc"> enum</span><span class="err"> {</span>
-<span class="err">        Some (String),</span>
-<span class="err">        None</span>
-<span class="err">    },</span>
+                <h1 id="4-collections">4. Collections</h1>
+<p>In this section, we will learn about several more complex types that are built into Serene.</p>
+<h2 id="arrays">Arrays</h2>
+<p>An array is a fixed-length sequence elements, where all of the elements are the same type. Indexing an array always returns an Optional, because the index used may be outside of the valid range of indexes. If the index is invalid, the indexing operation will return <code>undefined</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">binarySearch</span><span class="err">(u:</span><span class="nc"> Array</span><span class="err">[Int], x:</span><span class="nc"> Int</span><span class="err">) -&gt; Int {</span>
+<span class="err">    </span><span class="k">var</span><span class="err"> i = u.length / 2</span>
+<span class="err">    </span><span class="k">while</span><span class="err"> (True) {</span>
+<span class="err">        </span><span class="k">either</span><span class="err"> (u[i] is defined) </span><span class="k">or</span><span class="err"> throw IndexError</span>
+<span class="err">        </span><span class="k">if</span><span class="err"> (u[i] &lt; x) {</span>
+<span class="err">            </span><span class="k">set</span><span class="err"> i = i / 2</span>
+<span class="err">        } elseif (u[i] &gt; x) {</span>
+<span class="err">            </span><span class="k">set</span><span class="err"> i = (i + u.length)/2</span>
+<span class="err">        } </span><span class="k">else</span><span class="err"> {</span>
+<span class="err">            </span><span class="k">return</span><span class="err"> i</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
 <span class="err">}</span>
 
-<span class="k">type</span><span class="err"> Point3D tuple {</span>
-<span class="err">    Int,</span>
-<span class="err">    Int,</span>
-<span class="err">    Int</span>
+<span class="c1">//Where is the maybe-checking?</span>
+</code></pre></div>
+<h2 id="vectors">Vectors</h2>
+<p>An vector is similar to an array, except its length can be changed after creation. Like an array, if the index is invalid, the indexing operation will return <code>undefined</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">binarySearchAndDelete</span><span class="err">(</span><span class="kt">mutate</span><span class="err"> u:</span><span class="nc"> Array</span><span class="err">[Int], x:</span><span class="nc"> Int</span><span class="err">) {</span>
+<span class="err">    </span><span class="k">var</span><span class="err"> i = u.length / 2</span>
+<span class="err">    </span><span class="k">while</span><span class="err"> (True) {</span>
+<span class="err">        </span><span class="k">if</span><span class="err"> (u[i] &lt; x) {</span>
+<span class="err">            </span><span class="k">set</span><span class="err"> i = i / 2</span>
+<span class="err">        } elseif (u[i] &gt; x) {</span>
+<span class="err">            </span><span class="k">set</span><span class="err"> i = (i + u.length)/2</span>
+<span class="err">        } </span><span class="k">else</span><span class="err"> {</span>
+<span class="err">            u.delete!(i)</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
 <span class="err">}</span>
 
-<span class="k">type</span><span class="err"> Address tuple {</span>
-<span class="err">    Int,    </span><span class="c1">// House number</span>
-<span class="err">    String, </span><span class="c1">// Street name</span>
+<span class="c1">//Where is the maybe-checking?</span>
+</code></pre></div>
+<h2 id="regions-and-handles">Regions (and Handles)</h2>
+<p>A Region is a dynamically-sized block of memory where objects of the same type can be stored. Those objects are accessed using an index, referred to as a Handle. You can think of a Region as somewhat similar to a hash map, as it is effectively a mapping of keys to values. But unlike a hash map, the keys, called Handles in this case, are a special opaque type and are assigned by the Region when new values are added, rather than being assigned by the programmer. Once again, if the Handle doesn't refer to a valid object, the indexing operation will return <code>undefined</code>.</p>
+<p>Regions and Handles may sound a bit odd right now, but you'll see why they are necessary once you learn how to define your own types. For now, here is a simple demonstration of how they work.</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">makeNames</span><span class="err">() {</span>
+<span class="err">    </span><span class="k">var</span><span class="err"> reg = Region[String]</span>
+<span class="err">    </span><span class="k">const</span><span class="err"> firstName = reg.add!(</span><span class="s">&quot;Neil&quot;</span><span class="err">)</span>
+<span class="err">    </span><span class="k">const</span><span class="err"> middleName = reg.add!(</span><span class="s">&quot;Patrick&quot;</span><span class="err">)</span>
+<span class="err">    </span><span class="k">const</span><span class="err"> lastName = reg.add!(</span><span class="s">&quot;Harris&quot;</span><span class="err">)</span>
+
+<span class="err">    printLine(reg[firstName])</span>
+<span class="err">    printLine(reg[middleName])</span>
+<span class="err">    printLine(reg[lastName])</span>
 <span class="err">}</span>
 
-<span class="k">type</span><span class="err"> RainbowColors enum {</span>
-<span class="err">    Red,</span>
-<span class="err">    Orange,</span>
-<span class="err">    Yellow,</span>
-<span class="err">    Green,</span>
-<span class="err">    Blue,</span>
-<span class="err">    Purple</span>
+
+<span class="c1">// This function isn&#39;t useful, as the strings won&#39;t be accessible from the calling scope</span>
+<span class="c1">// but will still occupy memory within the Region. However, it&#39;s not a memory leak, because</span>
+<span class="c1">// reg as a whole is still accessible and can be deallocated later.</span>
+<span class="k">function</span><span class="err"> </span><span class="nf">makeNames2</span><span class="err">() -&gt; Region[String] {</span>
+<span class="err">    </span><span class="k">var</span><span class="err"> reg = Region[String]</span>
+<span class="err">    </span><span class="k">const</span><span class="err"> firstName = reg.add!(</span><span class="s">&quot;Neil&quot;</span><span class="err">)</span>
+<span class="err">    </span><span class="k">const</span><span class="err"> middleName = reg.add!(</span><span class="s">&quot;Patrick&quot;</span><span class="err">)</span>
+<span class="err">    </span><span class="k">const</span><span class="err"> lastName = reg.add!(</span><span class="s">&quot;Harris&quot;</span><span class="err">)</span>
+
+<span class="err">    </span><span class="k">return</span><span class="err"> reg</span>
 <span class="err">}</span>
 </code></pre></div>
                 
@@ -456,7 +557,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../05_Control_Flow/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../03_Mutability_And_Ownership/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -465,19 +566,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                5. Control Flow
+                3. Mutability and Ownership
               </div>
             </div>
           </a>
         
         
-          <a href="../07_Interfaces/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../05_Control_Flow/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                7. Interfaces
+                5. Control Flow
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

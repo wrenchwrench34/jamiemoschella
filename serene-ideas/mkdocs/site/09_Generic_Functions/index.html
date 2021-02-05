@@ -14,7 +14,7 @@
     
     
       
-        <title>10. Modules - Basics of Serene</title>
+        <title>9. Generic Functions - Basics of Serene</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#10-modules" class="md-skip">
+        <a href="#9-generic-functions" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              10. Modules
+              9. Generic Functions
             
           </span>
         </div>
@@ -253,8 +253,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../04_More_Types/" class="md-nav__link">
-        4. More Types
+      <a href="../04_Collections/" class="md-nav__link">
+        4. Collections
       </a>
     </li>
   
@@ -283,8 +283,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../06_Custom_Types/" class="md-nav__link">
-        6. Custom Types
+      <a href="../06_Expressing_Nothing/" class="md-nav__link">
+        6. Expressing Nothing
       </a>
     </li>
   
@@ -298,8 +298,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../07_Interfaces/" class="md-nav__link">
-        7. Interfaces
+      <a href="../07_Custom_Types/" class="md-nav__link">
+        7. Custom Types
       </a>
     </li>
   
@@ -313,23 +313,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../08_Generic_Functions/" class="md-nav__link">
-        8. Generic Functions
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../09_Generic_Types/" class="md-nav__link">
-        9. Generic Types
+      <a href="../08_Interfaces/" class="md-nav__link">
+        8. Interfaces
       </a>
     </li>
   
@@ -351,45 +336,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          10. Modules
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        10. Modules
+        9. Generic Functions
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#standard-imports" class="md-nav__link">
-    Standard Imports
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#local-imports" class="md-nav__link">
-    Local Imports
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -403,8 +352,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linked-List/" class="md-nav__link">
-        Example A: Linked List
+      <a href="../10_Generic_Types/" class="md-nav__link">
+        10. Generic Types
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_Modules/" class="md-nav__link">
+        11. Modules
       </a>
     </li>
   
@@ -428,28 +392,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#standard-imports" class="md-nav__link">
-    Standard Imports
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#local-imports" class="md-nav__link">
-    Local Imports
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -461,13 +403,37 @@
               
                 
                 
-                <h1 id="10-modules">10. Modules</h1>
-<p>It is extremely helpful to be able to use well-tested existing pieces of code to implement common functionality, or to be able to split your own code into multiple files for organization. Modules allow you to do just that. Like most programming languages, Serene is packaged with a standard library that implements many common functions and datatypes so you don't have to implement them yourself. You can use import statements to control what external modules you want to use. Import statements also allow you to import modules that you have created yourself, by using a relative file path to the module's location.</p>
-<h2 id="standard-imports">Standard Imports</h2>
-<p><code>import Math</code></p>
-<p><code>import AsyncGUI.window as window</code></p>
-<h2 id="local-imports">Local Imports</h2>
-<p><code>import local "lib/MovieReviewTypes.sn"</code></p>
+                <h1 id="9-generic-functions">9. Generic Functions</h1>
+<p>Serene supports both generic functions and generic types. A generic parameter is specified using the <code>type</code> keyword, like in the example below.</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">elementInArray</span><span class="err">(</span><span class="kt">move</span><span class="err"> elem:</span><span class="nc"> type</span><span class="err"> T, arr:</span><span class="nc"> Array</span><span class="err">[</span><span class="k">type</span><span class="err"> T]) -&gt; maybe </span><span class="k">type</span><span class="err"> T {</span>
+<span class="err">    </span><span class="k">for</span><span class="err"> (i = 0, arr.length) {</span>
+<span class="err">        </span><span class="k">if</span><span class="err"> (arr[i] == elem) {</span>
+<span class="err">            </span><span class="k">return</span><span class="err"> elem</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+
+<span class="err">    </span><span class="k">return</span><span class="err"> undefined</span>
+<span class="err">}</span>
+
+<span class="c1">// Where statement</span>
+<span class="k">function</span><span class="err"> </span><span class="nf">elementInArray</span><span class="err">(</span><span class="kt">move</span><span class="err"> elem:</span><span class="nc"> type</span><span class="err"> A, arr:</span><span class="nc"> type</span><span class="err"> B) -&gt; maybe </span><span class="k">type</span><span class="err"> A where</span>
+<span class="err">    </span><span class="k">type</span><span class="err"> A:</span><span class="nc"> Simple</span><span class="err">,</span>
+<span class="err">    </span><span class="k">type</span><span class="err"> B:</span><span class="nc"> Array</span><span class="err">[A] {</span>
+
+<span class="err">    </span><span class="k">for</span><span class="err"> (i = 0, arr.length) {</span>
+<span class="err">        </span><span class="k">if</span><span class="err"> (arr[i] == elem) {</span>
+<span class="err">            </span><span class="k">return</span><span class="err"> elem</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+
+<span class="err">    </span><span class="k">return</span><span class="err"> undefined</span>
+<span class="err">}</span>
+
+<span class="c1">// Idea: plug in type variable to function instead of value to yield return type?</span>
+<span class="c1">// Potentially some ambiguity/confusion there but definitely useful</span>
+
+<span class="c1">// Is &quot;type&quot; needed everywhere in the signature or only the first time the name is referenced?</span>
+</code></pre></div>
                 
               
               
@@ -486,7 +452,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../09_Generic_Types/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../08_Interfaces/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -495,19 +461,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                9. Generic Types
+                8. Interfaces
               </div>
             </div>
           </a>
         
         
-          <a href="../Linked-List/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../10_Generic_Types/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Example A: Linked List
+                10. Generic Types
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

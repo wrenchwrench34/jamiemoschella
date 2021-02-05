@@ -14,7 +14,7 @@
     
     
       
-        <title>4. More Types - Basics of Serene</title>
+        <title>8. Interfaces - Basics of Serene</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#4-more-types" class="md-skip">
+        <a href="#8-interfaces" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              4. More Types
+              8. Interfaces
             
           </span>
         </div>
@@ -251,63 +251,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          4. More Types
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        4. More Types
+    <li class="md-nav__item">
+      <a href="../04_Collections/" class="md-nav__link">
+        4. Collections
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#optionals" class="md-nav__link">
-    Optionals
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#arrays" class="md-nav__link">
-    Arrays
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vectors" class="md-nav__link">
-    Vectors
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -335,8 +283,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../06_Custom_Types/" class="md-nav__link">
-        6. Custom Types
+      <a href="../06_Expressing_Nothing/" class="md-nav__link">
+        6. Expressing Nothing
       </a>
     </li>
   
@@ -350,8 +298,47 @@
   
   
     <li class="md-nav__item">
-      <a href="../07_Interfaces/" class="md-nav__link">
-        7. Interfaces
+      <a href="../07_Custom_Types/" class="md-nav__link">
+        7. Custom Types
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        8. Interfaces
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_Generic_Functions/" class="md-nav__link">
+        9. Generic Functions
       </a>
     </li>
   
@@ -365,8 +352,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../08_Generic_Functions/" class="md-nav__link">
-        8. Generic Functions
+      <a href="../10_Generic_Types/" class="md-nav__link">
+        10. Generic Types
       </a>
     </li>
   
@@ -380,38 +367,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../09_Generic_Types/" class="md-nav__link">
-        9. Generic Types
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../10_Modules/" class="md-nav__link">
-        10. Modules
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Linked-List/" class="md-nav__link">
-        Example A: Linked List
+      <a href="../11_Modules/" class="md-nav__link">
+        11. Modules
       </a>
     </li>
   
@@ -435,35 +392,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#optionals" class="md-nav__link">
-    Optionals
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#arrays" class="md-nav__link">
-    Arrays
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vectors" class="md-nav__link">
-    Vectors
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -475,51 +403,81 @@
               
                 
                 
-                <h1 id="4-more-types">4. More Types</h1>
-<p>In this section, we will learn about several more complex types that are built into Serene.</p>
-<h2 id="optionals">Optionals</h2>
-<p>Optionals are used to represent values that may or may not exist. Before making use of the value, the language require you to check that the Optional is not None. This is typically done with a <code>match</code> statement or an <code>either</code> statement, which will both be introduced in the next section of this guide.</p>
-<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">getFirst</span><span class="err">(u:</span><span class="nc"> String</span><span class="err">) -&gt; Optional[Char] {</span>
-<span class="err">    </span><span class="k">if</span><span class="err"> (u.length &gt; 0) {</span>
-<span class="err">        </span><span class="k">return</span><span class="err"> u[0]</span>
-<span class="err">    } </span><span class="k">else</span><span class="err"> {</span>
-<span class="err">        </span><span class="k">return</span><span class="err"> None</span>
-<span class="err">    }</span>
-<span class="err">}</span>
-</code></pre></div>
-<h2 id="arrays">Arrays</h2>
-<p>An array is a fixed-length sequence elements, where all of the elements are the same type. Indexing an array always returns an Optional, because the index used may be outside of the valid range of indexes. If the index is invalid, the indexing operation will return None.</p>
-<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">binarySearch</span><span class="err">(u:</span><span class="nc"> Array</span><span class="err">[Int], x:</span><span class="nc"> Int</span><span class="err">) -&gt; Int {</span>
-<span class="err">    </span><span class="k">var</span><span class="err"> i = u.length / 2</span>
-<span class="err">    </span><span class="k">while</span><span class="err"> (True) {</span>
-<span class="err">        </span><span class="k">if</span><span class="err"> (u[i] &lt; x) {</span>
-<span class="err">            </span><span class="k">set</span><span class="err"> i = i / 2</span>
-<span class="err">        } elseif (u[i] &gt; x) {</span>
-<span class="err">            </span><span class="k">set</span><span class="err"> i = (i + u.length)/2</span>
-<span class="err">        } </span><span class="k">else</span><span class="err"> {</span>
-<span class="err">            </span><span class="k">return</span><span class="err"> i</span>
-<span class="err">        }</span>
-<span class="err">    }</span>
+                <h1 id="8-interfaces">8. Interfaces</h1>
+<p>When writing a function, sometimes you only care about what methods the function arguments support, and not how they're implemented. You may want to write the function in a flexible way so that they can accept any type that implements the correct methods. That can be done with Interfaces. Here is an example of how you can define an Interface.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="err"> AddressModule</span>
+
+
+<span class="k">interface</span><span class="err"> Card with</span>
+<span class="err">~ struct {</span>
+<span class="err">    returnAddress:</span><span class="nc"> String</span>
 <span class="err">}</span>
 
-<span class="c1">//Where are the Optionals?</span>
-</code></pre></div>
-<h2 id="vectors">Vectors</h2>
-<p>An vector is similar to an array, except its length can be changed after creation. Like an array, indexing a vector returns an Option.</p>
-<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">binarySearchAndDelete</span><span class="err">(</span><span class="kt">mutate</span><span class="err"> u:</span><span class="nc"> Array</span><span class="err">[Int], x:</span><span class="nc"> Int</span><span class="err">) {</span>
-<span class="err">    </span><span class="k">var</span><span class="err"> i = u.length / 2</span>
-<span class="err">    </span><span class="k">while</span><span class="err"> (True) {</span>
-<span class="err">        </span><span class="k">if</span><span class="err"> (u[i] &lt; x) {</span>
-<span class="err">            </span><span class="k">set</span><span class="err"> i = i / 2</span>
-<span class="err">        } elseif (u[i] &gt; x) {</span>
-<span class="err">            </span><span class="k">set</span><span class="err"> i = (i + u.length)/2</span>
-<span class="err">        } </span><span class="k">else</span><span class="err"> {</span>
-<span class="err">            u.delete!(i)</span>
-<span class="err">        }</span>
-<span class="err">    }</span>
+
+<span class="k">interface</span><span class="err"> Invitation with</span>
+<span class="err">~ struct {</span>
+<span class="err">    date:</span><span class="nc"> String</span><span class="err">,</span>
+<span class="err">    location:</span><span class="nc"> Address</span><span class="err">,</span>
+<span class="err">    numGuests:</span><span class="nc"> Int</span><span class="err">,</span>
+<span class="err">    accepted:</span><span class="nc"> Bool</span>
+<span class="err">}</span>
+<span class="err">~ signatures {</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">send</span><span class="err">(recipient:</span><span class="nc"> Person</span><span class="err">),</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">accept</span><span class="err">(guests:</span><span class="nc"> Int</span><span class="err">)</span>
 <span class="err">}</span>
 
-<span class="c1">//Where are the Optionals?</span>
+
+<span class="k">type</span><span class="err"> WeddingInvitation with</span>
+<span class="err">~ struct {</span>
+<span class="err">    bride:</span><span class="nc"> String</span><span class="err">,</span>
+<span class="err">    groom:</span><span class="nc"> String</span><span class="err">,</span>
+<span class="err">    struct from Invitation,</span>
+<span class="err">    struct from Card</span>
+<span class="err">}</span>
+<span class="err">~ specifics (implements Invitation) {</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">send</span><span class="err">(recipient:</span><span class="nc"> Person</span><span class="err">) {</span>
+<span class="err">        </span><span class="k">run</span><span class="err"> recipient.receive(</span><span class="kt">copy</span><span class="err"> self)</span>
+<span class="err">    }</span>
+
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">accept</span><span class="err">(guests:</span><span class="nc"> Int</span><span class="err">) {</span>
+<span class="err">        </span><span class="k">set</span><span class="err"> self.accepted = True</span>
+<span class="err">    }</span>
+
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">parseLocation</span><span class="err">(address:</span><span class="nc"> String</span><span class="err">) from AddressModule</span>
+<span class="err">}</span>
+
+
+
+<span class="c1">// Interfaces with generics?</span>
+
+<span class="k">interface</span><span class="err"> CompareAndIndex(self:</span><span class="nc"> type</span><span class="err"> X) with</span>
+<span class="err">~ signatures {</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> X</span><span class="err">) -&gt; bool</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">greaterThan</span><span class="err">(other:</span><span class="nc"> X</span><span class="err">) -&gt; bool</span>
+
+<span class="err">    </span><span class="k">subscript</span><span class="err"> </span><span class="nf">get</span><span class="err">(index:</span><span class="nc"> Int</span><span class="err">) -&gt; Option(X)</span>
+<span class="err">}</span>
+<span class="err">~ specifics where X:</span><span class="nc"> Array</span><span class="err">[Int] {</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> Array</span><span class="err">[Int]) {</span>
+<span class="err">        </span><span class="k">for</span><span class="err"> (i = 0, min(self.length, other.length)) {</span>
+<span class="err">            </span><span class="k">if</span><span class="err"> (self[i] != other[i]) {</span>
+<span class="err">                </span><span class="k">return</span><span class="err"> self[i] &lt; other[i]</span>
+<span class="err">            }</span>
+<span class="err">        }</span>
+<span class="err">        </span><span class="k">return</span><span class="err"> self.length &lt; other.length</span>
+<span class="err">    }</span>
+
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> Array</span><span class="err">[Int]) {</span>
+<span class="err">        </span><span class="k">for</span><span class="err"> (i = 0, min(self.length, other.length)) {</span>
+<span class="err">            </span><span class="k">if</span><span class="err"> (self[i] != other[i]) {</span>
+<span class="err">                </span><span class="k">return</span><span class="err"> self[i] &gt; other[i]</span>
+<span class="err">            }</span>
+<span class="err">        }</span>
+<span class="err">        </span><span class="k">return</span><span class="err"> self.length &gt; other.length</span>
+<span class="err">    }</span>
+
+<span class="err">    </span><span class="k">subscript</span><span class="err"> </span><span class="nf">get</span><span class="err">(index:</span><span class="nc"> Int</span><span class="err">) -&gt; Optional[Int] from Index(self:</span><span class="nc"> Array</span><span class="err">[</span><span class="k">type</span><span class="err"> X])</span>
+<span class="err">}</span>
 </code></pre></div>
                 
               
@@ -539,7 +497,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../03_Mutability_And_Ownership/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../07_Custom_Types/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -548,19 +506,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                3. Mutability and Ownership
+                7. Custom Types
               </div>
             </div>
           </a>
         
         
-          <a href="../05_Control_Flow/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../09_Generic_Functions/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                5. Control Flow
+                9. Generic Functions
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
