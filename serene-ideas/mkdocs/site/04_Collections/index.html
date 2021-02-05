@@ -493,7 +493,8 @@
                 <h1 id="4-collections">4. Collections</h1>
 <p>In this section, we will learn about several more complex types that are built into Serene.</p>
 <h2 id="arrays">Arrays</h2>
-<p>An array is a fixed-length sequence elements, where all of the elements are the same type. Indexing an array always returns an Optional, because the index used may be outside of the valid range of indexes. If the index is invalid, the indexing operation will return <code>undefined</code>.</p>
+<p>An array is a fixed-length sequence elements, where all of the elements are the same type. If the index is invalid, the indexing operation will return <code>undefined</code>, which is a special value (actually, it's not a value) that will be introduced later, in the Expressing Nothing section.</p>
+<p>You specify what the types of elements are by using generics. We'll explain more about generics later, but for now it suffices to say that you put the type of the elements in square brackets. So <code>Array[Float]</code> would be an array of floating-point numbers.</p>
 <div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">binarySearch</span><span class="err">(u:</span><span class="nc"> Array</span><span class="err">[Int], x:</span><span class="nc"> Int</span><span class="err">) -&gt; </span><span class="nc">Int</span><span class="err"> {</span>
 <span class="err">    </span><span class="k">var</span><span class="err"> i = u.length / 2</span>
 <span class="err">    </span><span class="k">while</span><span class="err"> (True) {</span>
