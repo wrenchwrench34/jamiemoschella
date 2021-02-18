@@ -518,8 +518,8 @@
 </code></pre></div>
 <h2 id="loops">Loops</h2>
 <p>Serene has two looping constructs: For Loops and While Loops.</p>
-<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">findMax</span><span class="err">(u:</span><span class="nc"> Vector</span><span class="err">[Int]) -&gt; </span><span class="nc">Int</span><span class="err"> {</span>
-<span class="err">    </span><span class="k">var</span><span class="err"> max:</span><span class="nc"> Int</span><span class="err"> = INT_MIN</span>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">findMax</span><span class="err">(u:</span><span class="nc"> Vector</span><span class="err">{Int}) -&gt; </span><span class="nc">Int</span><span class="err"> {</span>
+<span class="err">    </span><span class="k">var</span><span class="err"> max = Int.bottom    </span><span class="c1">//lowest possible Int value</span>
 <span class="err">    </span><span class="k">for</span><span class="err"> (x in u) {</span>
 <span class="err">        </span><span class="k">if</span><span class="err"> (x &gt; max) {</span>
 <span class="err">            </span><span class="k">set</span><span class="err"> max = x</span>
@@ -527,8 +527,8 @@
 <span class="err">    }</span>
 <span class="err">}</span>
 
-<span class="k">function</span><span class="err"> </span><span class="nf">findMax2</span><span class="err">(u:</span><span class="nc"> Vector</span><span class="err">[Int]) -&gt; </span><span class="nc">Int</span><span class="err"> {</span>
-<span class="err">    </span><span class="k">var</span><span class="err"> max:</span><span class="nc"> Int</span><span class="err"> = INT_MIN</span>
+<span class="k">function</span><span class="err"> </span><span class="nf">findMax2</span><span class="err">(u:</span><span class="nc"> Vector</span><span class="err">{Int}) -&gt; </span><span class="nc">Int</span><span class="err"> {</span>
+<span class="err">    </span><span class="k">var</span><span class="err"> max = Int.bottom</span>
 <span class="err">    </span><span class="k">var</span><span class="err"> i:</span><span class="nc"> Int</span><span class="err"> = 0</span>
 <span class="err">    </span><span class="k">while</span><span class="err"> (i &lt; u.length) {</span>
 <span class="err">        </span><span class="k">if</span><span class="err"> (u[i] &gt; max) {   </span><span class="c1">// Do you need to check if u[i] is undefined?</span>

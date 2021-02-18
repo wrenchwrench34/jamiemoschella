@@ -469,8 +469,8 @@
 
 <span class="err">    </span><span class="k">subscript</span><span class="err"> </span><span class="nf">get</span><span class="err">(index:</span><span class="nc"> Int</span><span class="err">) -&gt; </span><span class="nc">maybe</span><span class="err"> X</span>
 <span class="err">}</span>
-<span class="err">~ specifics where X:</span><span class="nc"> Array</span><span class="err">[Int] {</span>
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> Array</span><span class="err">[Int]) -&gt; </span><span class="nc">Bool</span><span class="err"> {</span>
+<span class="err">~ specifics where X:</span><span class="nc"> Array</span><span class="err">{Int} {</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> Array</span><span class="err">{Int}) -&gt; </span><span class="nc">Bool</span><span class="err"> {</span>
 <span class="err">        </span><span class="k">for</span><span class="err"> (i = 0, min(self.length, other.length)) {</span>
 <span class="err">            </span><span class="k">if</span><span class="err"> (self[i] != other[i]) {</span>
 <span class="err">                </span><span class="k">return</span><span class="err"> self[i] &lt; other[i]</span>
@@ -479,7 +479,7 @@
 <span class="err">        </span><span class="k">return</span><span class="err"> self.length &lt; other.length</span>
 <span class="err">    }</span>
 
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> Array</span><span class="err">[Int]) -&gt; </span><span class="nc">Bool</span><span class="err"> {</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">lessThan</span><span class="err">(other:</span><span class="nc"> Array</span><span class="err">{Int}) -&gt; </span><span class="nc">Bool</span><span class="err"> {</span>
 <span class="err">        </span><span class="k">for</span><span class="err"> (i = 0, min(self.length, other.length)) {</span>
 <span class="err">            </span><span class="k">if</span><span class="err"> (self[i] != other[i]) {</span>
 <span class="err">                </span><span class="k">return</span><span class="err"> self[i] &gt; other[i]</span>
@@ -488,7 +488,7 @@
 <span class="err">        </span><span class="k">return</span><span class="err"> self.length &gt; other.length</span>
 <span class="err">    }</span>
 
-<span class="err">    </span><span class="k">subscript</span><span class="err"> </span><span class="nf">get</span><span class="err">(index:</span><span class="nc"> Int</span><span class="err">) -&gt; </span><span class="nc">maybe</span><span class="err"> Int from Index[Array[</span><span class="k">type</span><span class="err"> X]]</span>
+<span class="err">    </span><span class="k">subscript</span><span class="err"> </span><span class="nf">get</span><span class="err">(index:</span><span class="nc"> Int</span><span class="err">) -&gt; </span><span class="nc">maybe</span><span class="err"> Int from Index{Array{</span><span class="k">type</span><span class="err"> X}}</span>
 <span class="err">}</span>
 </code></pre></div>
                 

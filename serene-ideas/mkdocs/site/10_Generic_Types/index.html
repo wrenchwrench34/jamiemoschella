@@ -484,24 +484,24 @@
 
 <span class="k">type</span><span class="err"> Region with</span>
 <span class="err">~ constructor(</span><span class="k">type</span><span class="err"> T) {</span>
-<span class="err">    </span><span class="k">set</span><span class="err"> vector = Vector[T]</span>
+<span class="err">    </span><span class="k">set</span><span class="err"> vector = Vector{T}</span>
 <span class="err">    </span><span class="k">type</span><span class="err"> R = typeof(self)</span>
 <span class="err">}</span>
 <span class="err">~ struct {</span>
-<span class="err">    vector:</span><span class="nc"> Vector</span><span class="err">[T] private,</span>
+<span class="err">    vector:</span><span class="nc"> Vector</span><span class="err">{T} private,</span>
 <span class="err">}</span>
 <span class="err">~ specifics {</span>
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">add</span><span class="err">(new_value:</span><span class="nc"> T</span><span class="err">) -&gt; </span><span class="nc">Handle</span><span class="err">[R] {</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">add</span><span class="err">(new_value:</span><span class="nc"> T</span><span class="err">) -&gt; </span><span class="nc">Handle</span><span class="err">{R} {</span>
 <span class="err">        </span><span class="k">run</span><span class="err"> vector.append(NewValue)</span>
 <span class="err">        </span><span class="k">const</span><span class="err"> handle = Handle(Region, vector.length)</span>
 <span class="err">        </span><span class="k">return</span><span class="err"> handle</span>
 <span class="err">    }</span>
 
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">delete</span><span class="err">(index_to_delete:</span><span class="nc"> Handle</span><span class="err">[R]) {</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">delete</span><span class="err">(index_to_delete:</span><span class="nc"> Handle</span><span class="err">{R}) {</span>
 <span class="err">        </span><span class="k">run</span><span class="err"> vector.pop!(index_to_delete)</span>
 <span class="err">    }</span>
 
-<span class="err">    </span><span class="k">subscript</span><span class="err"> </span><span class="nf">get</span><span class="err">(my_handle:</span><span class="nc"> Handle</span><span class="err">[R]) -&gt; </span><span class="nc">maybe</span><span class="err"> T {</span>
+<span class="err">    </span><span class="k">subscript</span><span class="err"> </span><span class="nf">get</span><span class="err">(my_handle:</span><span class="nc"> Handle</span><span class="err">{R}) -&gt; </span><span class="nc">maybe</span><span class="err"> T {</span>
 <span class="err">        </span><span class="k">return</span><span class="err"> vector[my_handle.index]</span>
 <span class="err">    }</span>
 <span class="err">}</span>

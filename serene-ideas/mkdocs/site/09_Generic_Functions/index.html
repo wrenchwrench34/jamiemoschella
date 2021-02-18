@@ -420,7 +420,7 @@
                 
                 <h1 id="9-generic-functions">9. Generic Functions</h1>
 <p>Serene supports both generic functions and generic types. A generic parameter is specified using the <code>type</code> keyword, like in the example below.</p>
-<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">elementInArray</span><span class="err">(</span><span class="kt">move</span><span class="err"> elem:</span><span class="nc"> type</span><span class="err"> T, arr:</span><span class="nc"> Array</span><span class="err">[</span><span class="k">type</span><span class="err"> T]) -&gt; </span><span class="nc">maybe</span><span class="err"> </span><span class="k">type</span><span class="err"> T {</span>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">elementInArray</span><span class="err">(</span><span class="kt">move</span><span class="err"> elem:</span><span class="nc"> type</span><span class="err"> T, arr:</span><span class="nc"> Array</span><span class="err">{</span><span class="k">type</span><span class="err"> T}) -&gt; </span><span class="nc">maybe</span><span class="err"> </span><span class="k">type</span><span class="err"> T {</span>
 <span class="err">    </span><span class="k">for</span><span class="err"> (i = 0, arr.length) {</span>
 <span class="err">        </span><span class="k">if</span><span class="err"> (arr[i] == elem) {</span>
 <span class="err">            </span><span class="k">return</span><span class="err"> elem</span>
@@ -433,7 +433,7 @@
 <span class="c1">// Where statement</span>
 <span class="k">function</span><span class="err"> </span><span class="nf">elementInArray</span><span class="err">(</span><span class="kt">move</span><span class="err"> elem:</span><span class="nc"> type</span><span class="err"> A, arr:</span><span class="nc"> type</span><span class="err"> B) -&gt; </span><span class="nc">maybe</span><span class="err"> </span><span class="k">type</span><span class="err"> A where</span>
 <span class="err">    </span><span class="k">type</span><span class="err"> A:</span><span class="nc"> Simple</span><span class="err">,</span>
-<span class="err">    </span><span class="k">type</span><span class="err"> B:</span><span class="nc"> Array</span><span class="err">[A] {</span>
+<span class="err">    </span><span class="k">type</span><span class="err"> B:</span><span class="nc"> Array</span><span class="err">{A} {</span>
 
 <span class="err">    </span><span class="k">for</span><span class="err"> (i = 0, arr.length) {</span>
 <span class="err">        </span><span class="k">if</span><span class="err"> (arr[i] == elem) {</span>
