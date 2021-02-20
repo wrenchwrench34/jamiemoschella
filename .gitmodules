@@ -1,0 +1,3 @@
+[submodule "serene-ideas"]
+	path = serene-ideas
+	url = https://github.com/jammmo/serene-ideas.git
