@@ -417,21 +417,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../11_Modules/" class="md-nav__link">
-        11. Modules
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../99_Everything_Else/" class="md-nav__link">
         Everything Else
       </a>
@@ -517,7 +502,7 @@
 <span class="err">}</span>
 </code></pre></div>
 <h2 id="loops">Loops</h2>
-<p>Serene has two looping constructs: For Loops and While Loops.</p>
+<p>Serene has two looping constructs: "for loops" and "while loops".</p>
 <div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">findMax</span><span class="err">(u:</span><span class="nc"> Vector</span><span class="err">{Int}) -&gt; </span><span class="nc">Int</span><span class="err"> {</span>
 <span class="err">    </span><span class="k">var</span><span class="err"> max = Int.bottom    </span><span class="c1">//lowest possible Int value</span>
 <span class="err">    </span><span class="k">for</span><span class="err"> (x in u) {</span>
@@ -531,7 +516,8 @@
 <span class="err">    </span><span class="k">var</span><span class="err"> max = Int.bottom</span>
 <span class="err">    </span><span class="k">var</span><span class="err"> i:</span><span class="nc"> Int</span><span class="err"> = 0</span>
 <span class="err">    </span><span class="k">while</span><span class="err"> (i &lt; u.length) {</span>
-<span class="err">        </span><span class="k">if</span><span class="err"> (u[i] &gt; max) {   </span><span class="c1">// Do you need to check if u[i] is undefined?</span>
+<span class="err">        </span><span class="c1">// Compiler automatically checks that u[i] is not undefined by verifying the loop bounds</span>
+<span class="err">        </span><span class="k">if</span><span class="err"> (u[i] &gt; max) {   </span>
 <span class="err">            </span><span class="k">set</span><span class="err"> max = u[i]</span>
 <span class="err">        }</span>
 <span class="err">    }</span>

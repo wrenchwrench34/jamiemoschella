@@ -367,21 +367,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../11_Modules/" class="md-nav__link">
-        11. Modules
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../99_Everything_Else/" class="md-nav__link">
         Everything Else
       </a>
@@ -420,21 +405,9 @@
                 
                 <h1 id="8-interfaces">8. Interfaces</h1>
 <p>When writing a function, sometimes you only care about what methods the function arguments support, and not how they're implemented. You may want to write the function in a flexible way so that they can accept any type that implements the correct methods. That can be done with Interfaces. Here is an example of how you can define an Interface.</p>
-<div class="highlight"><pre><span></span><code><span class="k">interface</span><span class="err"> Card with</span>
-<span class="err">~ struct {</span>
-<span class="err">    returnAddress:</span><span class="nc"> String</span>
-<span class="err">}</span>
-
-
-<span class="k">interface</span><span class="err"> Invitation with</span>
-<span class="err">~ struct {</span>
-<span class="err">    date:</span><span class="nc"> String</span><span class="err">,</span>
-<span class="err">    location:</span><span class="nc"> Address</span><span class="err">,</span>
-<span class="err">    numGuests:</span><span class="nc"> Int</span><span class="err">,</span>
-<span class="err">    accepted:</span><span class="nc"> Bool</span>
-<span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">interface</span><span class="err"> Invitation with</span>
 <span class="err">~ signatures {</span>
-<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">send</span><span class="err">(recipient:</span><span class="nc"> Person</span><span class="err">),</span>
+<span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">send</span><span class="err">(recipient:</span><span class="nc"> Person</span><span class="err">)</span>
 <span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">accept</span><span class="err">(guests:</span><span class="nc"> Int</span><span class="err">)</span>
 <span class="err">}</span>
 
@@ -443,8 +416,10 @@
 <span class="err">~ struct {</span>
 <span class="err">    bride:</span><span class="nc"> String</span><span class="err">,</span>
 <span class="err">    groom:</span><span class="nc"> String</span><span class="err">,</span>
-<span class="err">    struct from Invitation,</span>
-<span class="err">    struct from Card</span>
+<span class="err">    date:</span><span class="nc"> String</span><span class="err">,</span>
+<span class="err">    location:</span><span class="nc"> Address</span><span class="err">,</span>
+<span class="err">    numGuests:</span><span class="nc"> Int</span><span class="err">,</span>
+<span class="err">    accepted:</span><span class="nc"> Bool</span>
 <span class="err">}</span>
 <span class="err">~ specifics (implements Invitation) {</span>
 <span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">send</span><span class="err">(recipient:</span><span class="nc"> Person</span><span class="err">) {</span>
@@ -457,7 +432,6 @@
 
 <span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">parseLocation</span><span class="err">(address:</span><span class="nc"> String</span><span class="err">) from Address</span>
 <span class="err">}</span>
-
 
 
 <span class="c1">// Interfaces with generics?</span>

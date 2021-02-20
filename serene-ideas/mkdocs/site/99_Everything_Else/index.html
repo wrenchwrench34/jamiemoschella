@@ -356,21 +356,6 @@
 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../11_Modules/" class="md-nav__link">
-        11. Modules
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
     
   
   
@@ -413,6 +398,13 @@
         <li class="md-nav__item">
   <a href="#hardware-interrupts" class="md-nav__link">
     Hardware Interrupts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    Modules
   </a>
   
 </li>
@@ -492,6 +484,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    Modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#error-handling" class="md-nav__link">
     Error Handling
   </a>
@@ -538,6 +537,12 @@
 <p>This is an important one, and it's probably the biggest unknown at this point. The concurrency system will likely be closely linked to mutability and ownership, since there will need to be some way of passing data between threads. It won't be as simple as putting a mutex on a shared variable, since the language doesn't have any shared mutable state to begin with. Because of this, concurrency will likely have to be native to the language rather than being a standard library module. (Also, it would benefit readability to have some kind of special syntax that makes the thread synchronization clear.) Perhaps some sort of message passing system will work, but I really haven't started researching anything yet.</p>
 <h2 id="hardware-interrupts">Hardware Interrupts</h2>
 <p>Just like with concurrency, I think it makes sense for the compiler to have some sort of awareness of hardware interrupts. Interrupts don't come up in regular application-level programming, but they're essential to embedded programming. In C, programming interrupt service routines often involves mutating global variables that are declared <code>volatile</code>, but in Serene that would completely break the safety and "sanity" of the ownership system. So there should be some way of registering interrupts in a program so that both the reader and the compiler can clearly tell where they are enabled, and so that state is passed safely between the local scope and the interrupt service routine's scope.</p>
+<h2 id="modules">Modules</h2>
+<p>It's important for Serene to have a true module system: one that works seamlessly across different platforms and different versions of the language. As far as the syntax goes, I'd like to avoid having things like <code>std::something</code> everywhere. Python allows you to import standard library modules without actually writing <code>std</code>, and you can also import a module and specify whether to bring it into the current namespace in a single statement (rather than separate <code>#include</code> and <code>using</code> statements in C++, for example). I expect that the module syntax will similar to Python's, though with <code>Module::Something</code> for module prefixes instead of <code>Module.Something</code>. I'd also want a better way to differentiate between standard library modules and module files in a local directory. Put all of this together and it'll look something like this:</p>
+<p><code>import Math</code></p>
+<p><code>run Math::sqrt()</code></p>
+<p><code>from AsyncGUI import Window</code></p>
+<p><code>import local "lib/MovieReviewTypes.sn"</code></p>
 <h2 id="error-handling">Error Handling</h2>
 <p>Error handling isn't the most exciting aspect of a language, but for a language to promote safety and reliability, it needs a good error handling system. I frankly don't know that much about error handling and I'm not planning on doing anything particularly innovative here: the error handling system will likely be modeled after Rust or another modern language.</p>
 <h2 id="anonymous-functions">Anonymous Functions</h2>
@@ -566,7 +571,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../11_Modules/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../10_Generic_Types/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -575,7 +580,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                11. Modules
+                10. Generic Types
               </div>
             </div>
           </a>

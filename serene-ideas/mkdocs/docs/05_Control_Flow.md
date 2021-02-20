@@ -18,7 +18,7 @@ function absoluteValue(x: Int) -> Int {
 
 ## Loops
 
-Serene has two looping constructs: For Loops and While Loops.
+Serene has two looping constructs: "for loops" and "while loops".
 
 ```serene
 function findMax(u: Vector{Int}) -> Int {
@@ -34,7 +34,8 @@ function findMax2(u: Vector{Int}) -> Int {
 	var max = Int.bottom
 	var i: Int = 0
 	while (i < u.length) {
-		if (u[i] > max) {	// Do you need to check if u[i] is undefined?
+		// Compiler automatically checks that u[i] is not undefined by verifying the loop bounds
+		if (u[i] > max) {	
 			set max = u[i]
 		}
 	}

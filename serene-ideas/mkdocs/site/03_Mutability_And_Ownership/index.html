@@ -396,21 +396,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../11_Modules/" class="md-nav__link">
-        11. Modules
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../99_Everything_Else/" class="md-nav__link">
         Everything Else
       </a>
@@ -487,7 +472,8 @@
 <span class="err">    </span><span class="k">var</span><span class="err"> i = 0</span>
 <span class="err">    </span><span class="k">while</span><span class="err"> (i &lt; s.length) {</span>
 <span class="err">        </span><span class="k">if</span><span class="err"> (s[i] == c) {</span>
-<span class="err">            </span><span class="k">run</span><span class="err"> s.delete(i)</span>
+<span class="err">            </span><span class="c1">// Exclamation marks are required for methods that mutate the object they act on</span>
+<span class="err">            </span><span class="k">run</span><span class="err"> s.delete!(i)</span>
 <span class="err">        }</span>
 <span class="err">        </span><span class="k">else</span><span class="err"> {</span>
 <span class="err">            </span><span class="k">set</span><span class="err"> i += 1</span>
@@ -500,7 +486,7 @@
 <span class="err">    </span><span class="k">var</span><span class="err"> letter = Char(</span><span class="s">&#39; &#39;</span><span class="err">)</span>
 <span class="err">    </span><span class="k">run</span><span class="err"> middleChar(name, </span><span class="kt">mutate</span><span class="err"> letter)</span>
 
-<span class="err">    </span><span class="k">var</span><span class="err"> newname = name      </span><span class="c1">//copies name</span>
+<span class="err">    </span><span class="k">var</span><span class="err"> newname = name      </span><span class="c1">// copies name</span>
 <span class="err">    </span><span class="k">run</span><span class="err"> removeChar(</span><span class="kt">mutate</span><span class="err"> newname, c)</span>
 <span class="err">}</span>
 </code></pre></div>
