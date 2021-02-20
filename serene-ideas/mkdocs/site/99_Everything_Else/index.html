@@ -540,7 +540,7 @@
 <h2 id="modules">Modules</h2>
 <p>It's important for Serene to have a true module system: one that works seamlessly across different platforms and different versions of the language. As far as the syntax goes, I'd like to avoid having things like <code>std::something</code> everywhere. Python allows you to import standard library modules without actually writing <code>std</code>, and you can also import a module and specify whether to bring it into the current namespace in a single statement (rather than separate <code>#include</code> and <code>using</code> statements in C++, for example). I expect that the module syntax will similar to Python's, though with <code>Module::Something</code> for module prefixes instead of <code>Module.Something</code>. I'd also want a better way to differentiate between standard library modules and module files in a local directory. Put all of this together and it'll look something like this:</p>
 <p><code>import Math</code></p>
-<p><code>run Math::sqrt()</code></p>
+<p><code>run Math::sqrt(9)</code></p>
 <p><code>from AsyncGUI import Window</code></p>
 <p><code>import local "lib/MovieReviewTypes.sn"</code></p>
 <h2 id="error-handling">Error Handling</h2>
