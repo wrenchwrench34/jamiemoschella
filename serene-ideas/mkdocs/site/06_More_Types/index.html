@@ -476,7 +476,7 @@
 <div class="highlight"><pre><span></span><code><span class="k">type</span><span class="err"> </span><span class="nc">Person</span><span class="err"> </span><span class="k">struct</span><span class="err"> {</span>
 <span class="err">    age: </span><span class="nc">Int</span><span class="err">,</span>
 <span class="err">    name: </span><span class="nc">String</span><span class="err">,</span>
-<span class="err">    nickname: </span><span class="nc">Cell</span><span class="err">{</span><span class="nc">String</span><span class="err">}</span>
+<span class="err">    nickname: </span><span class="nc">Option</span><span class="err">{</span><span class="nc">String</span><span class="err">}</span>
 <span class="err">}</span>
 
 <span class="k">type</span><span class="err"> </span><span class="nc">Point3D</span><span class="err"> </span><span class="k">tuple</span><span class="err"> {</span>
@@ -500,7 +500,7 @@
 <span class="err">}</span>
 
 <span class="k">function</span><span class="err"> </span><span class="nf">main</span><span class="err">() {</span>
-<span class="err">    </span><span class="k">var</span><span class="err"> jason = </span><span class="nc">Person</span><span class="err">(41, </span><span class="s">&quot;Jason Segel&quot;</span><span class="err">, </span><span class="nc">Cell</span><span class="err">(</span><span class="s">&quot;Marshall&quot;</span><span class="err">))</span>
+<span class="err">    </span><span class="k">var</span><span class="err"> jason = </span><span class="nc">Person</span><span class="err">(41, </span><span class="s">&quot;Jason Segel&quot;</span><span class="err">, </span><span class="nc">Option</span><span class="err">(</span><span class="s">&quot;Marshall&quot;</span><span class="err">))</span>
 <span class="err">    </span><span class="k">set</span><span class="err"> jason.nickname = </span><span class="nc">None</span>
 
 <span class="err">    </span><span class="k">var</span><span class="err"> color = </span><span class="nc">RainbowColors</span><span class="err">::</span><span class="nc">Red</span>
