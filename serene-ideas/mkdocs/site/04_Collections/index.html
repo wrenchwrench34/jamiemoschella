@@ -509,8 +509,8 @@
 <span class="k">function</span><span class="err"> </span><span class="nf">main</span><span class="err">() {</span>
 <span class="err">    </span><span class="k">var</span><span class="err"> u = </span><span class="nc">Vector</span><span class="err">(</span><span class="nc">Int</span><span class="err">)                 </span><span class="c1">// creates an empty vector of integers</span>
 <span class="err">    </span><span class="k">print</span><span class="err"> </span><span class="s">&quot;Length of u: &quot;</span><span class="err">, u.length     </span><span class="c1">// Length of u: 0</span>
-<span class="err">    </span><span class="k">for</span><span class="err">(i = 0, 5) {</span>
-<span class="err">        u.append!(i * 2)</span>
+<span class="err">    </span><span class="k">for</span><span class="err"> (i = 0, 5) {</span>
+<span class="err">        </span><span class="k">run</span><span class="err"> u.append!(i * 2)</span>
 <span class="err">    }</span>
 <span class="err">    </span><span class="k">print</span><span class="err"> </span><span class="s">&quot;Length of u: &quot;</span><span class="err">, u.length     </span><span class="c1">// Length of u: 5</span>
 <span class="err">    </span><span class="k">print</span><span class="err"> u                             </span><span class="c1">// [0, 2, 4, 6, 8]</span>
