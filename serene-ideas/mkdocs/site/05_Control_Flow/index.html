@@ -481,25 +481,28 @@
 <span class="err">            </span><span class="k">set</span><span class="err"> max = x</span>
 <span class="err">        }</span>
 <span class="err">    }</span>
+<span class="err">    </span><span class="k">return</span><span class="err"> max</span>
 <span class="err">}</span>
 
 <span class="k">function</span><span class="err"> </span><span class="nf">findMax2</span><span class="err">(u: </span><span class="nc">Vector</span><span class="err">{</span><span class="nc">Int</span><span class="err">}) -&gt; </span><span class="nc">Int</span><span class="err"> {</span>
 <span class="err">    </span><span class="k">var</span><span class="err"> max = </span><span class="nc">Int</span><span class="err">.bottom</span>
-<span class="err">    </span><span class="k">for</span><span class="err"> (i = 0, u.length) { </span><span class="c1">//iterates from 0 up to (but not including) the length of u</span>
+<span class="err">    </span><span class="k">for</span><span class="err"> (i = 0, u.length()) {   </span><span class="c1">//iterates from 0 up to (but not including) the length of u</span>
 <span class="err">        </span><span class="k">if</span><span class="err"> (u[i] &gt; max) {</span>
 <span class="err">            </span><span class="k">set</span><span class="err"> max = u[i]</span>
 <span class="err">        }</span>
 <span class="err">    }</span>
+<span class="err">    </span><span class="k">return</span><span class="err"> max</span>
 <span class="err">}</span>
 
 <span class="k">function</span><span class="err"> </span><span class="nf">findMax3</span><span class="err">(u: </span><span class="nc">Vector</span><span class="err">{</span><span class="nc">Int</span><span class="err">}) -&gt; </span><span class="nc">Int</span><span class="err"> {</span>
 <span class="err">    </span><span class="k">var</span><span class="err"> max = </span><span class="nc">Int</span><span class="err">.bottom</span>
 <span class="err">    </span><span class="k">var</span><span class="err"> i: </span><span class="nc">Int</span><span class="err"> = 0</span>
-<span class="err">    </span><span class="k">while</span><span class="err"> (i &lt; u.length) {</span>
+<span class="err">    </span><span class="k">while</span><span class="err"> (i &lt; u.length()) {</span>
 <span class="err">        </span><span class="k">if</span><span class="err"> (u[i] &gt; max) {   </span>
 <span class="err">            </span><span class="k">set</span><span class="err"> max = u[i]</span>
 <span class="err">        }</span>
 <span class="err">    }</span>
+<span class="err">    </span><span class="k">return</span><span class="err"> max</span>
 <span class="err">}</span>
 </code></pre></div>
 <h2 id="match">Match</h2>

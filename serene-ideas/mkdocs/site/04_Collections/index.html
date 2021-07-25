@@ -468,13 +468,13 @@
 <span class="c1">// Array u must be already sorted</span>
 <span class="k">function</span><span class="err"> </span><span class="nf">binarySearch</span><span class="err">(u: </span><span class="nc">Array</span><span class="err">{</span><span class="nc">Int</span><span class="err">}, x: </span><span class="nc">Int</span><span class="err">) -&gt; </span><span class="nc">Int</span><span class="err"> {</span>
 <span class="err">    </span><span class="k">var</span><span class="err"> low = 0</span>
-<span class="err">    </span><span class="k">var</span><span class="err"> high = u.length</span>
+<span class="err">    </span><span class="k">var</span><span class="err"> high = u.length()</span>
 <span class="err">    </span><span class="k">while</span><span class="err"> (low &lt; high) {</span>
 <span class="err">        </span><span class="k">var</span><span class="err"> mid = (low + high) / 2  </span><span class="c1">// integer division</span>
 <span class="err">        </span><span class="k">if</span><span class="err"> (u[mid] &lt; x) {</span>
-<span class="err">            </span><span class="k">set</span><span class="err"> high = mid</span>
-<span class="err">        } </span><span class="k">else</span><span class="err"> {</span>
 <span class="err">            </span><span class="k">set</span><span class="err"> low = mid + 1</span>
+<span class="err">        } </span><span class="k">else</span><span class="err"> {</span>
+<span class="err">            </span><span class="k">set</span><span class="err"> high = mid</span>
 <span class="err">        }</span>
 <span class="err">    }</span>
 <span class="err">    </span><span class="k">return</span><span class="err"> low</span>
@@ -492,13 +492,13 @@
 <span class="c1">// Vector u must be already sorted</span>
 <span class="k">function</span><span class="err"> </span><span class="nf">binarySearchAndDelete</span><span class="err">(</span><span class="no">mutate</span><span class="err"> u: </span><span class="nc">Vector</span><span class="err">{</span><span class="nc">Int</span><span class="err">}, x: </span><span class="nc">Int</span><span class="err">) {</span>
 <span class="err">    </span><span class="k">var</span><span class="err"> low = 0</span>
-<span class="err">    </span><span class="k">var</span><span class="err"> high = u.length</span>
+<span class="err">    </span><span class="k">var</span><span class="err"> high = u.length()</span>
 <span class="err">    </span><span class="k">while</span><span class="err"> (low &lt; high) {</span>
 <span class="err">        </span><span class="k">var</span><span class="err"> mid = (low + high) / 2</span>
 <span class="err">        </span><span class="k">if</span><span class="err"> (u[mid] &lt; x) {</span>
-<span class="err">            </span><span class="k">set</span><span class="err"> high = mid</span>
-<span class="err">        } </span><span class="k">else</span><span class="err"> {</span>
 <span class="err">            </span><span class="k">set</span><span class="err"> low = mid + 1</span>
+<span class="err">        } </span><span class="k">else</span><span class="err"> {</span>
+<span class="err">            </span><span class="k">set</span><span class="err"> high = mid</span>
 <span class="err">        }</span>
 <span class="err">    }</span>
 <span class="err">    </span><span class="k">if</span><span class="err"> (u[low] == x) {</span>
@@ -508,13 +508,15 @@
 
 <span class="k">function</span><span class="err"> </span><span class="nf">main</span><span class="err">() {</span>
 <span class="err">    </span><span class="k">var</span><span class="err"> u = </span><span class="nc">Vector</span><span class="err">(</span><span class="nc">Int</span><span class="err">)                 </span><span class="c1">// creates an empty vector of integers</span>
-<span class="err">    </span><span class="k">print</span><span class="err"> </span><span class="s">&quot;Length of u: &quot;</span><span class="err">, u.length     </span><span class="c1">// Length of u: 0</span>
+<span class="err">    </span><span class="k">print</span><span class="err"> </span><span class="s">&quot;Length of u: &quot;</span><span class="err">, u.length()   </span><span class="c1">// Length of u: 0</span>
 <span class="err">    </span><span class="k">for</span><span class="err"> (i = 0, 5) {</span>
 <span class="err">        </span><span class="k">run</span><span class="err"> u.append!(i * 2)</span>
 <span class="err">    }</span>
-<span class="err">    </span><span class="k">print</span><span class="err"> </span><span class="s">&quot;Length of u: &quot;</span><span class="err">, u.length     </span><span class="c1">// Length of u: 5</span>
+<span class="err">    </span><span class="k">print</span><span class="err"> </span><span class="s">&quot;Length of u: &quot;</span><span class="err">, u.length()   </span><span class="c1">// Length of u: 5</span>
 <span class="err">    </span><span class="k">print</span><span class="err"> u                             </span><span class="c1">// [0, 2, 4, 6, 8]</span>
-<span class="err">    </span><span class="k">print</span><span class="err"> binarySearch(u, 6)            </span><span class="c1">// 3</span>
+<span class="err">    </span><span class="k">run</span><span class="err"> binarySearchAndDelete(u, 6)</span>
+<span class="err">    </span><span class="k">print</span><span class="err"> </span><span class="s">&quot;Length of u: &quot;</span><span class="err">, u.length()   </span><span class="c1">// Length of u: 4</span>
+<span class="err">    </span><span class="k">print</span><span class="err"> u                             </span><span class="c1">// [0, 2, 4, 8]</span>
 <span class="err">}</span>
 </code></pre></div>
 <h2 id="regions-and-handles">Regions (and Handles)</h2>

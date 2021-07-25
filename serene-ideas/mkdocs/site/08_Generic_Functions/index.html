@@ -393,7 +393,7 @@
 <p>In C++, you might see generics that look something like <code>std::make_unique&lt;Node&gt;(data)</code>, where you pass two sets of parameters: the type information in angle brackets, and the initialization data for the constructor in parenthesis. In Serene, you use curly braces instead of angle brackets for the type parameters in the function definition, but you should never actually see both sets of parameters written together when the function is called, as the type parameters are always either inferred or passed explicitly as regular arguments. As we'll see in the next section, the same is true for generic types: you might want to create an array whose type is <code>Array{Int}</code>, but you would initialize it using its constructor (eg. <code>Array(1, 2, 3)</code>) and the type parameters would be inferred. (<code>Array{Int}(1, 2, 3)</code> is invalid syntax.)</p>
 <p>Generic parameters are types, so they must be start with capital letters like any other type in Serene, and they are specified using the <code>type</code> keyword, like in the example below.</p>
 <div class="highlight"><pre><span></span><code><span class="k">function</span><span class="err"> </span><span class="nf">elementInArray</span><span class="err">{</span><span class="nc">T</span><span class="err">:</span><span class="nc"> type</span><span class="err">} (</span><span class="no">move</span><span class="err"> elem: </span><span class="nc">T</span><span class="err">, arr: </span><span class="nc">Array</span><span class="err">{</span><span class="nc">T</span><span class="err">}) -&gt; </span><span class="nc">Some</span><span class="err">{</span><span class="nc">T</span><span class="err">} {</span>
-<span class="err">    </span><span class="k">for</span><span class="err"> (i = 0, arr.length) {</span>
+<span class="err">    </span><span class="k">for</span><span class="err"> (i = 0, arr.length()) {</span>
 <span class="err">        </span><span class="k">if</span><span class="err"> (arr[i] == elem) {</span>
 <span class="err">            </span><span class="k">return</span><span class="err"> </span><span class="nc">Some</span><span class="err">(elem)</span>
 <span class="err">        }</span>
@@ -407,7 +407,7 @@
 <span class="err">    </span><span class="nc">A</span><span class="err">: </span><span class="nc">Simple</span><span class="err">,</span>
 <span class="err">    </span><span class="nc">B</span><span class="err">: </span><span class="nc">Array</span><span class="err">{</span><span class="nc">A</span><span class="err">} {</span>
 
-<span class="err">    </span><span class="k">for</span><span class="err"> (i = 0, arr.length) {</span>
+<span class="err">    </span><span class="k">for</span><span class="err"> (i = 0, arr.length()) {</span>
 <span class="err">        </span><span class="k">if</span><span class="err"> (arr[i] == elem) {</span>
 <span class="err">            </span><span class="k">return</span><span class="err"> </span><span class="nc">Some</span><span class="err">(elem)</span>
 <span class="err">        }</span>

@@ -469,7 +469,7 @@
 <span class="err">~ </span><span class="k">specifics</span><span class="err"> {</span>
 <span class="err">    </span><span class="k">method</span><span class="err"> </span><span class="nf">add</span><span class="err">(new_value: </span><span class="nc">T</span><span class="err">) -&gt; </span><span class="nc">Handle</span><span class="err">{</span><span class="nc">Region</span><span class="err">{</span><span class="nc">T</span><span class="err">}} {</span>
 <span class="err">        </span><span class="k">run</span><span class="err"> self.vector.append(</span><span class="nc">NewValue</span><span class="err">)</span>
-<span class="err">        </span><span class="k">const</span><span class="err"> handle = </span><span class="nc">Handle</span><span class="err">(</span><span class="nc">Region</span><span class="err">{</span><span class="nc">T</span><span class="err">}, vector.length - 1)</span>
+<span class="err">        </span><span class="k">const</span><span class="err"> handle = </span><span class="nc">Handle</span><span class="err">(</span><span class="nc">Region</span><span class="err">{</span><span class="nc">T</span><span class="err">}, vector.length() - 1)</span>
 <span class="err">        </span><span class="k">return</span><span class="err"> handle</span>
 <span class="err">    }</span>
 
